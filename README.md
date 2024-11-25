@@ -1,16 +1,3 @@
 # leqaa_app
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [UI](https://www.figma.com/design/xENzeZIpbfrcu8tOY1PxCk/%D9%85%D9%88%D9%82%D8%B9-%D9%88%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D9%84%D9%82%D8%A7%D8%A1?node-id=28-15764&node-type=canvas&t=r8Kp2XMZmhclw1pD-0)
