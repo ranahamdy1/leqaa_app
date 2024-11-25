@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -6,14 +7,22 @@ import 'package:leqaa_app/core/helper/cache_helper.dart';
 import 'package:leqaa_app/core/helper/dio_helper.dart';
 import 'package:leqaa_app/features/welcome/splash/splash_screen.dart';
 
-void main() async {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   Bloc.observer = const SimpleBlocObserver();
   await CacheHelper.init();
   await DioHelper.init();
   await Hive.initFlutter();
   var box = await Hive.openBox('data');
-  runApp(const MyApp());
+  runApp(
+    EasyLocalization(
+        supportedLocales: const [Locale('en'), Locale('ar')],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('ar'),
+        child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,6 +31,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
       home: const SplashScreen(),

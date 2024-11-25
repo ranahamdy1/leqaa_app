@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
@@ -5,7 +6,7 @@ import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/welcome/on_boarding/controller/on_boarding_cubit.dart';
+import 'package:leqaa_app/features/welcome/on_boarding/controller/on_boarding/on_boarding_cubit.dart';
 import 'package:leqaa_app/features/welcome/on_boarding/view/start_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -21,7 +22,7 @@ class OnBoardingScreen extends StatelessWidget {
           builder: (context, state) {
             if (state is GoToHomeState) {
               WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                AppRoutes.routeAndRemoveAllTo(context, const StartScreen());
+                AppRoutes.routeAndRemoveAllTo(context, StartScreen());
               });
             }
             final onBoarding = context.watch<OnBoardingCubit>();
@@ -67,8 +68,7 @@ class OnBoardingScreen extends StatelessWidget {
                               ),
                             ),
                             22.hSize,
-                            onBoarding.currentPage ==
-                                    onBoarding.onBoardingList.length - 1
+                            onBoarding.currentPage == onBoarding.onBoardingList.length - 1
                                 ? Padding(
                                     padding: const EdgeInsets.all(28.0),
                                     child: CustomButtonWidget(
@@ -77,7 +77,7 @@ class OnBoardingScreen extends StatelessWidget {
                                       backgroundColor: AppColors.mainColor,
                                       width: double.infinity,
                                       onPressed: (){
-                                        AppRoutes.routeAndRemoveAllTo(context, const StartScreen());
+                                        AppRoutes.routeAndRemoveAllTo(context, StartScreen());
                                       },
                                     ),
                                   )
@@ -87,21 +87,21 @@ class OnBoardingScreen extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                       children: [
                                         CustomButtonWidget(
-                                          "تخطي",
-                                          color: AppColors.secondColor,
-                                          backgroundColor: AppColors.whiteColor,
-                                          width: 174,
-                                          onPressed: () {
-                                           AppRoutes.routeAndRemoveAllTo(context, const StartScreen());
-                                          },
-                                        ),
-                                        CustomButtonWidget(
-                                          "التالي",
+                                          "next".tr(),
                                           color: AppColors.whiteColor,
                                           backgroundColor: AppColors.mainColor,
                                           width: 174,
                                           onPressed: (){
                                             context.read<OnBoardingCubit>().next();
+                                          },
+                                        ),
+                                        CustomButtonWidget(
+                                          "skip".tr(),
+                                          color: AppColors.secondColor,
+                                          backgroundColor: AppColors.whiteColor,
+                                          width: 174,
+                                          onPressed: () {
+                                           AppRoutes.routeAndRemoveAllTo(context, StartScreen());
                                           },
                                         ),
                                       ],

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
@@ -7,9 +8,9 @@ part 'on_boarding_state.dart';
 class OnBoardingCubit extends Cubit<OnBoardingState> {
   List<OnBoardingModel> onBoardingList = [
     OnBoardingModel(
-        title: "تطبيق زواج مصمم خصيصًا للمسلمين في العالم العربي ",
-        body: "يضم التطبيق أكثر من 800000 عضو من جميع أنحاء العالم العربي،",
-        body2: " بما في ذلك دول الخليج وأوروبا وأمريكا الشمالية.",
+        title: "onBoardingOneTitle".tr(),
+        body: "onBoardingOneBody1".tr(),
+        body2: "onBoardingOneBody2".tr(),
         image: 'on_boarding'.getPngAsset,
     ),
     OnBoardingModel(
