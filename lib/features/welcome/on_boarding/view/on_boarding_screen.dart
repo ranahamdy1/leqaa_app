@@ -5,7 +5,7 @@ import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/welcome/on_boarding/cubit/on_boarding_cubit.dart';
+import 'package:leqaa_app/features/welcome/on_boarding/controller/on_boarding_cubit.dart';
 import 'package:leqaa_app/features/welcome/on_boarding/view/start_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
