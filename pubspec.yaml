@@ -1,0 +1,51 @@
+name: leqaa_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+  animated_splash_screen: ^1.3.0
+  flutter_native_splash: ^2.4.3
+  dio: ^5.7.0
+  pretty_dio_logger: ^1.4.0
+  shared_preferences: ^2.3.3
+  flutter_bloc: ^8.1.6
+  flutter_svg: ^2.0.15
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  smooth_page_indicator: ^1.2.0+3
+  flutter_localization: ^0.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^4.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+
+  fonts:
+    - family: Somar
+      fonts:
+        - asset: assets/fonts/fonnts.com-Somar_Bold.ttf
+        - asset: assets/fonts/fonnts.com-Somar_Regular.ttf
+

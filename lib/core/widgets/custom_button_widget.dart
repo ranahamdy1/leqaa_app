@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+import 'package:leqaa_app/core/utils/app_colors.dart';
+import 'package:leqaa_app/core/widgets/text_widget.dart';
+
+class CustomButtonWidget extends StatelessWidget {
+  const CustomButtonWidget(this.text, {super.key, this.onPressed, this.color, this.backgroundColor, this.width});
+  final String text;
+  final Color? color;
+  final double? width;
+  final Color? backgroundColor;
+  final void Function()? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
+      height: 56,
+      child: ElevatedButton(
+        onPressed: onPressed ?? () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+        ),
+        child: TextWidget(
+          text, color: color,
+        ),
+      ),
+    );
+  }
+}
