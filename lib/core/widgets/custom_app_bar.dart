@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 
 class CustomAppBar extends StatelessWidget {

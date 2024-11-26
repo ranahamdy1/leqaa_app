@@ -34,7 +34,13 @@ class ForgetPasswordScreen extends StatelessWidget {
                   ],
                 ),
                 22.hSize,
-
+                CustomTextFormField(
+                  hintText: 'ahmedali@gmail.com',
+                  labelText: "ahmedali@gmail.com ",
+                  kbType: TextInputType.emailAddress,
+                  controller: controller,
+                  onChanged: (value) {  },
+                ),
                 66.hSize,
                 CustomButtonWidget(
                     " تأكيد",
