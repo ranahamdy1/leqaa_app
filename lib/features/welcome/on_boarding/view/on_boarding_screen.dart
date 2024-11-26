@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
+import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
@@ -39,7 +40,19 @@ class OnBoardingScreen extends StatelessWidget {
                         itemCount: onBoarding.onBoardingList.length,
                         itemBuilder: (context, i) => Column(
                           children: [
-                            Image.asset(onBoarding.onBoardingList[i].image),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height/1.9, // Stack takes full screen height
+                              child: Stack(
+                                children: [
+                                  Image.asset(onBoarding.onBoardingList[i].image),
+                                  Center(child: Image.asset("on_boarding_one".getPngAsset)),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Image.asset("border".getPngAsset),
+                                  ),
+                                ],
+                              ),
+                            ),
                             33.hSize,
                             TextWidget.bigText(onBoarding.onBoardingList[i].title),
                             33.hSize,

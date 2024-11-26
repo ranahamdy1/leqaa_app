@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
               child: Image.asset("splash_top_png".getPngAsset),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.6,
+              height: MediaQuery.of(context).size.height * 0.2,
               child: AnimatedSplashScreen(
                 duration: 1500,
                 splashIconSize: 200,
