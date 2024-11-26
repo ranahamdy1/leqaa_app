@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
+import 'package:leqaa_app/core/widgets/text_widget.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String hintText;
@@ -37,9 +38,8 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
-          label: Text(
+          label: TextWidget.smallText(
             labelText ?? '',
-            style: const TextStyle(color: Colors.grey, fontSize: 14),
           ),
           labelStyle: const TextStyle(color: Colors.grey, fontSize: 16),
           suffixIcon: suffixIcon,
@@ -47,20 +47,20 @@ class CustomTextFormField extends StatelessWidget {
           fillColor: Colors.transparent,
           filled: true,
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            //borderSide: const BorderSide(color: AppColors.greyColor, width: 1.5),
+            borderRadius: BorderRadius.circular(6),
+            borderSide: const BorderSide(color: AppColors.smallTextColor, width: 1),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            //borderSide: const BorderSide(color: AppColors.greyColor, width: 1.5,),
+            borderRadius: BorderRadius.circular(6),
+            borderSide: const BorderSide(color: AppColors.smallTextColor, width: 1),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            //borderSide: const BorderSide(color: AppColors.greyColor, width: 1.5,),
+            borderRadius: BorderRadius.circular(6),
+            borderSide: const BorderSide(color: AppColors.smallTextColor, width: 1),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            //borderSide: const BorderSide(color: AppColors.greyColor),
+            borderRadius: BorderRadius.circular(6),
+            borderSide: const BorderSide(color: AppColors.smallTextColor),
           ),
           focusColor: AppColors.mainColor,
           hintText: hintText,

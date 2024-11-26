@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 
 class CustomButtonWidget extends StatelessWidget {
@@ -25,6 +24,7 @@ class CustomButtonWidget extends StatelessWidget {
         ),
         child: TextWidget(
           text, color: color,
+          fontFamily: "Somar",
         ),
       ),
     );

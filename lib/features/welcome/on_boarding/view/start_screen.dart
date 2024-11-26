@@ -7,6 +7,7 @@ import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/auth/login/views/login_screen.dart';
+import 'package:leqaa_app/features/auth/sign_up/views/sign_up/sign_up_screen.dart';
 import 'package:leqaa_app/features/welcome/on_boarding/view/widgets/drawer_widget.dart';
 
 class StartScreen extends StatelessWidget {
@@ -61,7 +62,7 @@ class StartScreen extends StatelessWidget {
                     backgroundColor: AppColors.mainColor,
                     width: 170,
                     onPressed: () {
-                      AppRoutes.routeTo(context, const LoginScreen());
+                      AppRoutes.routeTo(context, LoginScreen());
                     },
                   ),
                   12.wSize,
@@ -70,6 +71,9 @@ class StartScreen extends StatelessWidget {
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.secondColor,
                     width: 170,
+                    onPressed: () {
+                      AppRoutes.routeTo(context, SignUpScreen());
+                    },
                   ),
                 ],
               ),

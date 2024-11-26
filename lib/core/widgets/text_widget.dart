@@ -52,6 +52,19 @@ class TextWidget extends StatelessWidget {
         this.maxLines,
         this.fontFamily = "Somar",
       });
+  const TextWidget.mediumText(
+      this.text, {
+        super.key,
+        this.color = AppColors.mainColor,
+        this.overflow,
+        this.textDirection,
+        this.textAlign,
+        this.fontSize = 12,
+        this.fontWeight = FontWeight.w700,
+        this.shadows,
+        this.maxLines,
+        this.fontFamily = "Somar",
+      });
 
   @override
   Widget build(BuildContext context) {
