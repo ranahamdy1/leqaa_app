@@ -5,7 +5,8 @@ import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/home/views/home/home_screen.dart';
+import 'package:leqaa_app/features/home/views/home/view/home_screen.dart';
+import 'package:leqaa_app/features/home/views/main_navigation/main_navigation_screen.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 
 class TenStepScreen extends StatelessWidget {
@@ -59,7 +60,7 @@ class TenStepScreen extends StatelessWidget {
                 backgroundColor: AppColors.mainColor,
                 width: double.infinity,
                 onPressed: () {
-                  AppRoutes.routeTo(context, const HomeScreen());
+                  AppRoutes.routeTo(context, const MainNavigationScreen());
                 },
               ),
             ],

@@ -6,7 +6,7 @@ import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/custom_text_form_feild.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/home/views/home/home_screen.dart';
+import 'package:leqaa_app/features/home/views/main_navigation/main_navigation_screen.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   ResetPasswordScreen({super.key});
@@ -59,7 +59,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.mainColor,
                     onPressed: (){
-                      AppRoutes.routeTo(context, const HomeScreen());
+                      AppRoutes.routeTo(context, const MainNavigationScreen());
                     }
                 ),
               ],

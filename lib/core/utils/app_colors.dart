@@ -8,4 +8,5 @@ class AppColors {
   static const Color smallTextColor = Color(0xFF909298);
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color pageControllerColor = Color(0xFF83D9FB);
+  static const Color babyGreyColor = Color(0xFFF6F6F6);
 }

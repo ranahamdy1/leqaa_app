@@ -8,7 +8,7 @@ import 'package:leqaa_app/core/widgets/custom_text_form_feild.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/auth/forget_password/view/forget_password_screen.dart';
 import 'package:leqaa_app/features/auth/sign_up/views/sign_up/sign_up_screen.dart';
-import 'package:leqaa_app/features/home/views/home/home_screen.dart';
+import 'package:leqaa_app/features/home/views/main_navigation/main_navigation_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -64,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.mainColor,
                     onPressed: (){
-                      AppRoutes.routeTo(context, const HomeScreen());
+                      AppRoutes.routeTo(context, const MainNavigationScreen());
                     }
                 ),
                 12.hSize,
