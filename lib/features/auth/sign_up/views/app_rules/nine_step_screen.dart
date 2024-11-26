@@ -10,7 +10,8 @@ import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:pinput/pinput.dart';
 
 class NineStepScreen extends StatelessWidget {
-  NineStepScreen({super.key});
+  final int currentStep;
+  NineStepScreen({super.key, required this.currentStep});
   final codeController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
@@ -48,9 +49,9 @@ class NineStepScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 13,
                         child: LinearProgressBar(
-                          maxSteps: 4,
+                          maxSteps: 10,
+                          currentStep: currentStep,
                           progressType: LinearProgressBar.progressTypeLinear,
-                          currentStep: 1,
                           dotsActiveSize: 55,
                           progressColor: AppColors.pageControllerColor,
                           backgroundColor: AppColors.smallTextColor,

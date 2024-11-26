@@ -10,7 +10,8 @@ import 'package:leqaa_app/features/auth/sign_up/views/app_rules/fifth_step_scree
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 
 class FourthStepScreen extends StatelessWidget {
-  FourthStepScreen({super.key});
+  final int currentStep;
+  FourthStepScreen({super.key, required this.currentStep});
   final controller = TextEditingController();
 
   @override
@@ -34,13 +35,13 @@ class FourthStepScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 13,
                         child: LinearProgressBar(
-                          maxSteps: 4,
-                          progressType: LinearProgressBar.progressTypeLinear, // Use Linear progress
-                          currentStep: 1,
+                          maxSteps: 10,
+                          currentStep: currentStep,
+                          progressType: LinearProgressBar.progressTypeLinear,
                           dotsActiveSize: 55,
                           progressColor: AppColors.pageControllerColor,
                           backgroundColor: AppColors.smallTextColor,
-                          borderRadius: BorderRadius.circular(10), // NEW
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
@@ -82,7 +83,8 @@ class FourthStepScreen extends StatelessWidget {
                 backgroundColor: AppColors.mainColor,
                 width: double.infinity,
                 onPressed: (){
-                  AppRoutes.routeTo(context, FifthStepScreen());
+                  AppRoutes.routeTo(context, FifthStepScreen(currentStep: currentStep + 1),);
+
                 },
               ),
             ],

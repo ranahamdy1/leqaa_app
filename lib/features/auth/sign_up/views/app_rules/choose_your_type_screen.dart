@@ -8,8 +8,21 @@ import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/auth/sign_up/views/app_rules/second_step_screen.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 
-class ChooseYourTypeScreen extends StatelessWidget {
+class ChooseYourTypeScreen extends StatefulWidget {
   const ChooseYourTypeScreen({super.key});
+
+  @override
+  State<ChooseYourTypeScreen> createState() => _ChooseYourTypeScreenState();
+}
+
+class _ChooseYourTypeScreenState extends State<ChooseYourTypeScreen> {
+  int _currentStep = 1;
+
+  void _incrementStep() {
+    setState(() {
+      if (_currentStep < 10) _currentStep++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +44,11 @@ class ChooseYourTypeScreen extends StatelessWidget {
                     child: SizedBox(
                       height: 13,
                       child: LinearProgressBar(
-                        maxSteps: 4,
-                        progressType: LinearProgressBar.progressTypeLinear, // Use Linear progress
-                        currentStep: 1,
-                        dotsActiveSize: 55,
+                        maxSteps: 10,
+                        currentStep: _currentStep,
                         progressColor: AppColors.pageControllerColor,
                         backgroundColor: AppColors.smallTextColor,
-                        borderRadius: BorderRadius.circular(10), // NEW
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
@@ -59,15 +70,21 @@ class ChooseYourTypeScreen extends StatelessWidget {
                 color: AppColors.whiteColor,
                 backgroundColor: AppColors.mainColor,
                 width: double.infinity,
-                onPressed: (){
-                  AppRoutes.routeTo(context, SecondStepScreen());
-                },
+                onPressed: () {
+                  _incrementStep();
+                  AppRoutes.routeTo(context, SecondStepScreen(currentStep: _currentStep),);
+                }, // Pass current step to the next screen
               ),
             ),
-            const TextWidget("تسجيل دخول",color: AppColors.secondColor,fontFamily: "Somar",),
+            const TextWidget(
+              "تسجيل دخول",
+              color: AppColors.secondColor,
+              fontFamily: "Somar",
+            ),
           ],
         ),
       ),
     );
   }
 }
+

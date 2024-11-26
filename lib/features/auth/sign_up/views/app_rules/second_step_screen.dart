@@ -10,7 +10,9 @@ import 'package:leqaa_app/features/auth/sign_up/views/app_rules/third_step_scree
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 
 class SecondStepScreen extends StatelessWidget {
-  SecondStepScreen({super.key});
+  final int currentStep;
+  SecondStepScreen({super.key, required this.currentStep});
+
   final controller = TextEditingController();
 
   @override
@@ -34,13 +36,11 @@ class SecondStepScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 13,
                         child: LinearProgressBar(
-                          maxSteps: 4,
-                          progressType: LinearProgressBar.progressTypeLinear, // Use Linear progress
-                          currentStep: 1,
-                          dotsActiveSize: 55,
+                          maxSteps: 10,
+                          currentStep: currentStep, // Use passed current step
                           progressColor: AppColors.pageControllerColor,
                           backgroundColor: AppColors.smallTextColor,
-                          borderRadius: BorderRadius.circular(10), // NEW
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
@@ -56,39 +56,39 @@ class SecondStepScreen extends StatelessWidget {
                 labelText: "القيبلة / العائلة",
                 controller: controller,
                 kbType: TextInputType.visiblePassword,
-                onChanged: (value) {  },
+                onChanged: (value) {},
               ),
               CustomTextFormField(
                 hintText: "النسب",
                 labelText: "النسب",
                 controller: controller,
                 kbType: TextInputType.visiblePassword,
-                onChanged: (value) {  },
-                suffixIcon: const Icon(Icons.arrow_drop_down,size: 44),
+                onChanged: (value) {},
+                suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
               ),
               CustomTextFormField(
                 hintText: "الجنسية",
                 labelText: "الجنسية",
                 controller: controller,
                 kbType: TextInputType.visiblePassword,
-                onChanged: (value) {  },
-                suffixIcon: const Icon(Icons.arrow_drop_down,size: 44),
+                onChanged: (value) {},
+                suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
               ),
               CustomTextFormField(
                 hintText: "الحالة الاجتماعية",
                 labelText: "الحالة الاجتماعية",
                 controller: controller,
                 kbType: TextInputType.visiblePassword,
-                onChanged: (value) {  },
-                suffixIcon: const Icon(Icons.arrow_drop_down,size: 44),
+                onChanged: (value) {},
+                suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
               ),
               CustomTextFormField(
                 hintText: "مكان الاقامة",
                 labelText: "مكان الاقامة",
                 controller: controller,
                 kbType: TextInputType.visiblePassword,
-                onChanged: (value) {  },
-                suffixIcon: const Icon(Icons.arrow_drop_down,size: 44),
+                onChanged: (value) {},
+                suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
               ),
               66.hSize,
               CustomButtonWidget(
@@ -96,8 +96,8 @@ class SecondStepScreen extends StatelessWidget {
                 color: AppColors.whiteColor,
                 backgroundColor: AppColors.mainColor,
                 width: double.infinity,
-                onPressed: (){
-                  AppRoutes.routeTo(context, ThirdStepScreen());
+                onPressed: () {
+                  AppRoutes.routeTo(context, ThirdStepScreen(currentStep: currentStep + 1),);
                 },
               ),
             ],

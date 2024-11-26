@@ -10,7 +10,8 @@ import 'package:leqaa_app/features/auth/sign_up/views/widgets/eight_screen_widge
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 
 class EightStepScreen extends StatelessWidget {
-  const EightStepScreen({super.key});
+  final int currentStep;
+  const EightStepScreen({super.key, required this.currentStep});
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,9 @@ class EightStepScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 13,
                         child: LinearProgressBar(
-                          maxSteps: 4,
+                          maxSteps: 10,
+                          currentStep: currentStep,
                           progressType: LinearProgressBar.progressTypeLinear,
-                          currentStep: 1,
                           dotsActiveSize: 55,
                           progressColor: AppColors.pageControllerColor,
                           backgroundColor: AppColors.smallTextColor,
@@ -76,7 +77,7 @@ class EightStepScreen extends StatelessWidget {
                 backgroundColor: AppColors.mainColor,
                 width: double.infinity,
                 onPressed: () {
-                  AppRoutes.routeTo(context, NineStepScreen());
+                  AppRoutes.routeTo(context, NineStepScreen(currentStep: currentStep + 1),);
                 },
               ),
             ],

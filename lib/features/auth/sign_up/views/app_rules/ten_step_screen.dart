@@ -32,9 +32,9 @@ class TenStepScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 13,
                         child: LinearProgressBar(
-                          maxSteps: 4,
+                          maxSteps: 10,
+                          currentStep: 10,
                           progressType: LinearProgressBar.progressTypeLinear,
-                          currentStep: 1,
                           dotsActiveSize: 55,
                           progressColor: AppColors.pageControllerColor,
                           backgroundColor: AppColors.smallTextColor,

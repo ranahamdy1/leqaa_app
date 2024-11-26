@@ -10,7 +10,8 @@ import 'package:leqaa_app/features/auth/sign_up/views/app_rules/seven_step_scree
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 
 class SixStepScreen extends StatelessWidget {
-  SixStepScreen({super.key});
+  final int currentStep;
+  SixStepScreen({super.key, required this.currentStep});
   final controller = TextEditingController();
 
   @override
@@ -34,9 +35,9 @@ class SixStepScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 13,
                         child: LinearProgressBar(
-                          maxSteps: 4,
-                          progressType: LinearProgressBar.progressTypeLinear, // Use Linear progress
-                          currentStep: 1,
+                          maxSteps: 10,
+                          currentStep: currentStep,
+                          progressType: LinearProgressBar.progressTypeLinear,
                           dotsActiveSize: 55,
                           progressColor: AppColors.pageControllerColor,
                           backgroundColor: AppColors.smallTextColor,
@@ -103,7 +104,7 @@ class SixStepScreen extends StatelessWidget {
                 backgroundColor: AppColors.mainColor,
                 width: double.infinity,
                 onPressed: (){
-                  AppRoutes.routeTo(context, const SevenStepScreen());
+                  AppRoutes.routeTo(context, SevenStepScreen(currentStep: currentStep + 1),);
                 },
               ),
             ],

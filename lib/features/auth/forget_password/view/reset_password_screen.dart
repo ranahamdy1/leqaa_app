@@ -6,14 +6,12 @@ import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/custom_text_form_feild.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/auth/forget_password/view/forget_password_screen.dart';
-import 'package:leqaa_app/features/auth/sign_up/views/sign_up/sign_up_screen.dart';
 import 'package:leqaa_app/features/home/views/home/home_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
-  final emailController = TextEditingController();
+class ResetPasswordScreen extends StatelessWidget {
+  ResetPasswordScreen({super.key});
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,38 +26,35 @@ class LoginScreen extends StatelessWidget {
                 22.hSize,
                 Image.asset("splash_dark".getPngAsset),
                 33.hSize,
-                const TextWidget.bigText('تسجيل الدخول'),
+                const TextWidget.bigText('اعادة تعيين كلمة المرور'),
+                12.hSize,
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    TextWidget.mediumText("يرجي إضافة كلمة مرور جديدة للحفاظ على سرية بياناتك"),
+                  ],
+                ),
                 22.hSize,
                 CustomTextFormField(
-                  hintText: 'البريد الالكتروني ',
-                  labelText: "البريد الالكتروني ",
-                  kbType: TextInputType.emailAddress,
-                  controller: emailController,
-                  onChanged: (value) {  },
-                ),
-                12.hSize,
-                CustomTextFormField(
-                  hintText: 'كلمة المرور',
-                  labelText: 'كلمة المرور',
+                  hintText: 'كلمة مرور جديدة',
+                  labelText: "كلمة مرور جديدة",
                   kbType: TextInputType.visiblePassword,
                   controller: passwordController,
                   onChanged: (value) {  },
                   suffixIcon: const Icon(Icons.remove_red_eye_outlined,color: AppColors.mainColor,),
                 ),
                 12.hSize,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    InkWell(
-                        onTap: (){
-                          AppRoutes.routeTo(context, ForgetPasswordScreen());
-                        },
-                        child: const TextWidget("هل نسيت كلمة المرور ؟",color: AppColors.secondColor,)),
-                  ],
+                CustomTextFormField(
+                  hintText: 'اعادة ادخال كلمة المرور',
+                  labelText: 'اعادة ادخال كلمة المرور',
+                  kbType: TextInputType.visiblePassword,
+                  controller: confirmPasswordController,
+                  onChanged: (value) {  },
+                  suffixIcon: const Icon(Icons.remove_red_eye_outlined,color: AppColors.mainColor,),
                 ),
                 66.hSize,
                 CustomButtonWidget(
-                    "تسجيل دخول",
+                    "تأكيد",
                     width: double.infinity,
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.mainColor,
@@ -67,18 +62,6 @@ class LoginScreen extends StatelessWidget {
                       AppRoutes.routeTo(context, const HomeScreen());
                     }
                 ),
-                12.hSize,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const TextWidget(" ليس لديك حساب ",fontFamily: 'Somar',),
-                    InkWell(
-                        onTap: (){
-                          AppRoutes.routeTo(context, SignUpScreen());
-                        },
-                        child: const TextWidget(" سجل الان",color: AppColors.secondColor,fontFamily: "Somar",)),
-                  ],
-                )
               ],
             ),
           ),

@@ -48,7 +48,7 @@ class CustomTextFormField extends StatelessWidget {
           filled: true,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
-            borderSide: const BorderSide(color: AppColors.smallTextColor, width: 1),
+            borderSide: const BorderSide(color: AppColors.secondColor, width: 1),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
@@ -69,7 +69,6 @@ class CustomTextFormField extends StatelessWidget {
         ),
         obscureText: isObscureText ?? false,
         validator: validator,
-
       ),
     );
   }
