@@ -17,97 +17,99 @@ class SixStepScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: 18.aEdge,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset("next".getPngAsset),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
-                      child: SizedBox(
-                        height: 13,
-                        child: LinearProgressBar(
-                          maxSteps: 10,
-                          currentStep: currentStep,
-                          progressType: LinearProgressBar.progressTypeLinear,
-                          dotsActiveSize: 55,
-                          progressColor: AppColors.pageControllerColor,
-                          backgroundColor: AppColors.smallTextColor,
-                          borderRadius: BorderRadius.circular(10), // NEW
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: 12.aEdge,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.asset("next".getPngAsset),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 28.0),
+                        child: SizedBox(
+                          height: 9,
+                          child: LinearProgressBar(
+                            maxSteps: 10,
+                            currentStep: currentStep,
+                            progressType: LinearProgressBar.progressTypeLinear,
+                            dotsActiveSize: 55,
+                            progressColor: AppColors.pageControllerColor,
+                            backgroundColor: AppColors.pageControllerColorWithOpacity,
+                            borderRadius: BorderRadius.circular(10), // NEW
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const TextWidget("خطوة 10/6"),
-              12.hSize,
-              const TextWidget.bigText("الشخصية"),
-              12.hSize,
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextWidget("برجاء عمل اختبار الشخصية من خلال الرابط التالي"),
-                  TextWidget("16personalities",color: AppColors.secondColor,),
-                ],
-              ),
-              22.hSize,
-              CustomTextFormField(
-                hintText: "EFPI",
-                controller: controller,
-                kbType: TextInputType.visiblePassword,
-                onChanged: (value) {  },
-              ),
-              TextFormField(
-                maxLines: null,
-                minLines: 5,
-                decoration: InputDecoration(
-                  hintText: 'مواصفاتك',
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 1.5),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.grey),
+                  ],
+                ),
+                const TextWidget("خطوة 10/6"),
+                12.hSize,
+                const TextWidget.bigText("الشخصية"),
+                12.hSize,
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextWidget.smallText("برجاء عمل اختبار الشخصية من خلال الرابط التالي"),
+                    TextWidget("16personalities",color: AppColors.secondColor,),
+                  ],
+                ),
+                22.hSize,
+                CustomTextFormField(
+                  hintText: "EFPI",
+                  controller: controller,
+                  kbType: TextInputType.visiblePassword,
+                  onChanged: (value) {  },
+                ),
+                TextFormField(
+                  maxLines: null,
+                  minLines: 5,
+                  decoration: InputDecoration(
+                    hintText: 'مواصفاتك',
+                    hintStyle: const TextStyle(color: Colors.grey),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.5),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.grey),
+                    ),
                   ),
                 ),
-              ),
-              12.hSize,
-              TextFormField(
-                maxLines: null,
-                minLines: 5,
-                decoration: InputDecoration(
-                  hintText: 'مواصفات شريك حياتك',
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 1.5),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.grey),
+                12.hSize,
+                TextFormField(
+                  maxLines: null,
+                  minLines: 5,
+                  decoration: InputDecoration(
+                    hintText: 'مواصفات شريك حياتك',
+                    hintStyle: const TextStyle(color: Colors.grey),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.5),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.grey),
+                    ),
                   ),
                 ),
-              ),
-              66.hSize,
-              CustomButtonWidget(
-                "التالي",
-                color: AppColors.whiteColor,
-                backgroundColor: AppColors.mainColor,
-                width: double.infinity,
-                onPressed: (){
-                  AppRoutes.routeTo(context, SevenStepScreen(currentStep: currentStep + 1),);
-                },
-              ),
-            ],
+                66.hSize,
+                CustomButtonWidget(
+                  "التالي",
+                  color: AppColors.whiteColor,
+                  backgroundColor: AppColors.mainColor,
+                  width: double.infinity,
+                  onPressed: (){
+                    AppRoutes.routeTo(context, SevenStepScreen(currentStep: currentStep + 1),);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

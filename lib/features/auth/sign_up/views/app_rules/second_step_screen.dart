@@ -18,89 +18,91 @@ class SecondStepScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: 18.aEdge,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset("next".getPngAsset),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
-                      child: SizedBox(
-                        height: 13,
-                        child: LinearProgressBar(
-                          maxSteps: 10,
-                          currentStep: currentStep, // Use passed current step
-                          progressColor: AppColors.pageControllerColor,
-                          backgroundColor: AppColors.smallTextColor,
-                          borderRadius: BorderRadius.circular(10),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: 18.aEdge,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.asset("next".getPngAsset),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 28.0),
+                        child: SizedBox(
+                          height: 9,
+                          child: LinearProgressBar(
+                            maxSteps: 10,
+                            currentStep: currentStep, // Use passed current step
+                            progressColor: AppColors.pageControllerColor,
+                            backgroundColor: AppColors.pageControllerColorWithOpacity,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const TextWidget("خطوة 10/2"),
-              12.hSize,
-              const TextWidget.bigText("المعلومات الاساسية والاجتماعية"),
-              22.hSize,
-              CustomTextFormField(
-                hintText: "القيبلة / العائلة",
-                labelText: "القيبلة / العائلة",
-                controller: controller,
-                kbType: TextInputType.visiblePassword,
-                onChanged: (value) {},
-              ),
-              CustomTextFormField(
-                hintText: "النسب",
-                labelText: "النسب",
-                controller: controller,
-                kbType: TextInputType.visiblePassword,
-                onChanged: (value) {},
-                suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
-              ),
-              CustomTextFormField(
-                hintText: "الجنسية",
-                labelText: "الجنسية",
-                controller: controller,
-                kbType: TextInputType.visiblePassword,
-                onChanged: (value) {},
-                suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
-              ),
-              CustomTextFormField(
-                hintText: "الحالة الاجتماعية",
-                labelText: "الحالة الاجتماعية",
-                controller: controller,
-                kbType: TextInputType.visiblePassword,
-                onChanged: (value) {},
-                suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
-              ),
-              CustomTextFormField(
-                hintText: "مكان الاقامة",
-                labelText: "مكان الاقامة",
-                controller: controller,
-                kbType: TextInputType.visiblePassword,
-                onChanged: (value) {},
-                suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
-              ),
-              66.hSize,
-              CustomButtonWidget(
-                "التالي",
-                color: AppColors.whiteColor,
-                backgroundColor: AppColors.mainColor,
-                width: double.infinity,
-                onPressed: () {
-                  AppRoutes.routeTo(context, ThirdStepScreen(currentStep: currentStep + 1),);
-                },
-              ),
-            ],
+                  ],
+                ),
+                const TextWidget("خطوة 10/2"),
+                12.hSize,
+                const TextWidget.bigText("المعلومات الاساسية والاجتماعية"),
+                22.hSize,
+                CustomTextFormField(
+                  hintText: "القيبلة / العائلة",
+                  labelText: "القيبلة / العائلة",
+                  controller: controller,
+                  kbType: TextInputType.visiblePassword,
+                  onChanged: (value) {},
+                ),
+                CustomTextFormField(
+                  hintText: "النسب",
+                  labelText: "النسب",
+                  controller: controller,
+                  kbType: TextInputType.visiblePassword,
+                  onChanged: (value) {},
+                  suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
+                ),
+                CustomTextFormField(
+                  hintText: "الجنسية",
+                  labelText: "الجنسية",
+                  controller: controller,
+                  kbType: TextInputType.visiblePassword,
+                  onChanged: (value) {},
+                  suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
+                ),
+                CustomTextFormField(
+                  hintText: "الحالة الاجتماعية",
+                  labelText: "الحالة الاجتماعية",
+                  controller: controller,
+                  kbType: TextInputType.visiblePassword,
+                  onChanged: (value) {},
+                  suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
+                ),
+                CustomTextFormField(
+                  hintText: "مكان الاقامة",
+                  labelText: "مكان الاقامة",
+                  controller: controller,
+                  kbType: TextInputType.visiblePassword,
+                  onChanged: (value) {},
+                  suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
+                ),
+                66.hSize,
+                CustomButtonWidget(
+                  "التالي",
+                  color: AppColors.whiteColor,
+                  backgroundColor: AppColors.mainColor,
+                  width: double.infinity,
+                  onPressed: () {
+                    AppRoutes.routeTo(context, ThirdStepScreen(currentStep: currentStep + 1),);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

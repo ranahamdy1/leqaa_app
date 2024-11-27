@@ -11,22 +11,19 @@ class SelectionIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Container(
-        height: 44,
-        width: 111,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(33),
-            color: AppColors.whiteColor
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.asset(imageText.getPngAsset),
-            TextWidget(text,color: AppColors.secondColor,fontSize: 12,),
-          ],
-        ),
+    return Container(
+      height: 44,
+      width: 111,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(33),
+          color: AppColors.whiteColor
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset(imageText.getPngAsset),
+          TextWidget(text,color: AppColors.secondColor,fontSize: 12,),
+        ],
       ),
     );
   }

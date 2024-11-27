@@ -17,8 +17,7 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<OnBoardingCubit>(
       create: (context) => OnBoardingCubit(),
-      child: Scaffold(
-        body: BlocConsumer<OnBoardingCubit, OnBoardingState>(
+      child:BlocConsumer<OnBoardingCubit, OnBoardingState>(
           listener: (context, state) {},
           builder: (context, state) {
             if (state is GoToHomeState) {
@@ -41,7 +40,7 @@ class OnBoardingScreen extends StatelessWidget {
                         itemBuilder: (context, i) => Column(
                           children: [
                             SizedBox(
-                              height: MediaQuery.of(context).size.height/1.9, // Stack takes full screen height
+                              height: MediaQuery.of(context).size.height/1.9,
                               child: Stack(
                                 children: [
                                   Image.asset(onBoarding.onBoardingList[i].image),
@@ -103,7 +102,7 @@ class OnBoardingScreen extends StatelessWidget {
                                           "next".tr(),
                                           color: AppColors.whiteColor,
                                           backgroundColor: AppColors.mainColor,
-                                          width: 174,
+                                          width: 155,
                                           onPressed: (){
                                             context.read<OnBoardingCubit>().next();
                                           },
@@ -112,7 +111,7 @@ class OnBoardingScreen extends StatelessWidget {
                                           "skip".tr(),
                                           color: AppColors.secondColor,
                                           backgroundColor: AppColors.whiteColor,
-                                          width: 174,
+                                          width: 155,
                                           onPressed: () {
                                            AppRoutes.routeAndRemoveAllTo(context, StartScreen());
                                           },
@@ -131,7 +130,6 @@ class OnBoardingScreen extends StatelessWidget {
             );
           },
         ),
-      ),
     );
   }
 }

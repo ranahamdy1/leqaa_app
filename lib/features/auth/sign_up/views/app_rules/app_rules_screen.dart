@@ -15,7 +15,7 @@ class AppRulesScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: 18.aEdge,
+          padding: 8.aEdge,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

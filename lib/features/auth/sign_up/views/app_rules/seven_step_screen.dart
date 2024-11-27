@@ -32,14 +32,14 @@ class SevenStepScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 28.0),
                       child: SizedBox(
-                        height: 13,
+                        height: 9,
                         child: LinearProgressBar(
                           maxSteps: 10,
                           currentStep: currentStep,
                           progressType: LinearProgressBar.progressTypeLinear,
                           dotsActiveSize: 55,
                           progressColor: AppColors.pageControllerColor,
-                          backgroundColor: AppColors.smallTextColor,
+                          backgroundColor: AppColors.pageControllerColorWithOpacity,
                           borderRadius: BorderRadius.circular(10), // NEW
                         ),
                       ),
@@ -55,7 +55,10 @@ class SevenStepScreen extends StatelessWidget {
                 child: GridView(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                   children: <Widget>[
-                    Image.asset("add_image".getPngAsset),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Image.asset("add_image".getPngAsset),
+                    ),
                     const SevenScreenWidget(),
                     const SevenScreenWidget(),
                     const SevenScreenWidget(),

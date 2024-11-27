@@ -30,7 +30,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    TextWidget.mediumText("يمكنك تغيير كلمة المرور من خلال البريد الالكتروني الخاص بك"),
+                    TextWidget.smallText("يمكنك تغيير كلمة المرور من خلال البريد الالكتروني الخاص بك"),
                   ],
                 ),
                 22.hSize,

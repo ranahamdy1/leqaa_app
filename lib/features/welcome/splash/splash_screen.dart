@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/features/welcome/on_boarding/view/on_boarding_screen.dart';
@@ -15,6 +16,7 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            33.hSize,
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.4,
               child: Image.asset("splash_top_png".getPngAsset),

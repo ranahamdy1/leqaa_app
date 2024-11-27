@@ -57,22 +57,22 @@ class StartScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomButtonWidget(
-                    "login".tr(),
+                    "signUp".tr(),
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.mainColor,
-                    width: 170,
+                    width: 155,
                     onPressed: () {
-                      AppRoutes.routeTo(context, LoginScreen());
+                      AppRoutes.routeTo(context, SignUpScreen());
                     },
                   ),
                   12.wSize,
                   CustomButtonWidget(
-                    "signUp".tr(),
+                    "login".tr(),
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.secondColor,
-                    width: 170,
+                    width: 155,
                     onPressed: () {
-                      AppRoutes.routeTo(context, SignUpScreen());
+                      AppRoutes.routeTo(context, LoginScreen());
                     },
                   ),
                 ],

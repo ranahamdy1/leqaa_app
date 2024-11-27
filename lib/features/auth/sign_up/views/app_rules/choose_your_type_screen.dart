@@ -28,60 +28,63 @@ class _ChooseYourTypeScreenState extends State<ChooseYourTypeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Image.asset("next".getPngAsset),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 28.0),
-                    child: SizedBox(
-                      height: 13,
-                      child: LinearProgressBar(
-                        maxSteps: 10,
-                        currentStep: _currentStep,
-                        progressColor: AppColors.pageControllerColor,
-                        backgroundColor: AppColors.smallTextColor,
-                        borderRadius: BorderRadius.circular(10),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Image.asset("next".getPngAsset),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 28.0),
+                      child: SizedBox(
+                        height: 9,
+                        child: LinearProgressBar(
+                          maxSteps: 10,
+                          currentStep: _currentStep,
+                          progressColor: AppColors.pageControllerColor,
+                          backgroundColor: AppColors.pageControllerColorWithOpacity,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            const TextWidget("خطوة 10/1"),
-            33.hSize,
-            const TextWidget.bigText("حدد النوع لانشاء ملفك الشخصي"),
-            29.hSize,
-            Image.asset("boy".getPngAsset),
-            22.hSize,
-            Image.asset("girl".getPngAsset),
-            55.hSize,
-            Padding(
-              padding: const EdgeInsets.all(28.0),
-              child: CustomButtonWidget(
-                "التالي",
-                color: AppColors.whiteColor,
-                backgroundColor: AppColors.mainColor,
-                width: double.infinity,
-                onPressed: () {
-                  _incrementStep();
-                  AppRoutes.routeTo(context, SecondStepScreen(currentStep: _currentStep),);
-                }, // Pass current step to the next screen
+                ],
               ),
-            ),
-            const TextWidget(
-              "تسجيل دخول",
-              color: AppColors.secondColor,
-              fontFamily: "Somar",
-            ),
-          ],
+              const TextWidget("خطوة 10/1"),
+              33.hSize,
+              const TextWidget.bigText("حدد النوع لانشاء ملفك الشخصي"),
+              29.hSize,
+              Image.asset("boy".getPngAsset),
+              22.hSize,
+              Image.asset("girl".getPngAsset),
+              55.hSize,
+              Padding(
+                padding: const EdgeInsets.all(28.0),
+                child: CustomButtonWidget(
+                  "التالي",
+                  color: AppColors.whiteColor,
+                  backgroundColor: AppColors.mainColor,
+                  width: double.infinity,
+                  onPressed: () {
+                    _incrementStep();
+                    AppRoutes.routeTo(context, SecondStepScreen(currentStep: _currentStep),);
+                  }, // Pass current step to the next screen
+                ),
+              ),
+              const TextWidget(
+                "تسجيل دخول",
+                color: AppColors.secondColor,
+                fontFamily: "Somar",
+              ),
+              22.hSize,
+            ],
+          ),
         ),
       ),
     );

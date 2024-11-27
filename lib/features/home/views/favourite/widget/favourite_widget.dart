@@ -10,7 +10,7 @@ class FavouriteWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(3.0),
       child: Container(
         width: 363,
         height: 133,
@@ -29,7 +29,7 @@ class FavouriteWidget extends StatelessWidget {
         child: Row(
           children: [
             Image.asset("home_image".getPngAsset),
-            9.wSize,
+            5.wSize,
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,8 +43,8 @@ class FavouriteWidget extends StatelessWidget {
                 ),
                 const Row(
                   children: [
-                    Icon(Icons.location_on_outlined,color: Colors.red,size: 15,),
-                    TextWidget("الكويت",color: Colors.red,)
+                    Icon(Icons.location_on_outlined,color: AppColors.secondColor,size: 15,),
+                    TextWidget("الكويت",color: AppColors.secondColor,)
                   ],
                 ),
                 const TextWidget.smallText("يضم التطبيق أكثر من 800000 عضو من جميع أنحاء العالم العربي",fontSize: 9,),

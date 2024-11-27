@@ -16,7 +16,7 @@ class EightScreenWidget extends StatelessWidget {
         height: 44,
         width: 103,
         decoration: BoxDecoration(
-          color: AppColors.secondColor,
+          color: AppColors.babyPinkColor,
           borderRadius: BorderRadius.circular(4),
         ),
         child: Row(

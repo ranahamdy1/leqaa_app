@@ -18,7 +18,7 @@ class EightStepScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: 18.aEdge,
+          padding: 12.aEdge,
           child: Column(
             children: [
               Row(
@@ -32,14 +32,14 @@ class EightStepScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 28.0),
                       child: SizedBox(
-                        height: 13,
+                        height: 9,
                         child: LinearProgressBar(
                           maxSteps: 10,
                           currentStep: currentStep,
                           progressType: LinearProgressBar.progressTypeLinear,
                           dotsActiveSize: 55,
                           progressColor: AppColors.pageControllerColor,
-                          backgroundColor: AppColors.smallTextColor,
+                          backgroundColor: AppColors.pageControllerColorWithOpacity,
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),

@@ -37,8 +37,8 @@ class HomeContainerWidget extends StatelessWidget {
                 const TextWidget.bigText("سارة عبد الرحمن , 24 سنة  "),
                 const Row(
                   children: [
-                    Icon(Icons.location_on_outlined,color: Colors.red,size: 15,),
-                    TextWidget("الكويت",color: Colors.red,)
+                    Icon(Icons.location_on_outlined,color: AppColors.secondColor,size: 15,),
+                    TextWidget("الكويت",color: AppColors.secondColor,)
                   ],
                 ),
                 const TextWidget.smallText("يضم التطبيق أكثر من 800000 عضو من جميع أنحاء العالم العربي",fontSize: 9,),

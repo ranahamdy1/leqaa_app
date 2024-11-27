@@ -23,7 +23,7 @@ class NineStepScreen extends StatelessWidget {
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
-      border: Border.all(color: AppColors.smallTextColor),
+      border: Border.all(color: AppColors.babyGreyColor),
       borderRadius: BorderRadius.circular(5),
     ),
   );
@@ -31,90 +31,92 @@ class NineStepScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: 18.aEdge,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset("next".getPngAsset),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
-                      child: SizedBox(
-                        height: 13,
-                        child: LinearProgressBar(
-                          maxSteps: 10,
-                          currentStep: currentStep,
-                          progressType: LinearProgressBar.progressTypeLinear,
-                          dotsActiveSize: 55,
-                          progressColor: AppColors.pageControllerColor,
-                          backgroundColor: AppColors.smallTextColor,
-                          borderRadius: BorderRadius.circular(10),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: 18.aEdge,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.asset("next".getPngAsset),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 28.0),
+                        child: SizedBox(
+                          height: 9,
+                          child: LinearProgressBar(
+                            maxSteps: 10,
+                            currentStep: currentStep,
+                            progressType: LinearProgressBar.progressTypeLinear,
+                            dotsActiveSize: 55,
+                            progressColor: AppColors.pageControllerColor,
+                            backgroundColor: AppColors.pageControllerColorWithOpacity,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const TextWidget("خطوة 10/9"),
-              12.hSize,
-              const TextWidget.bigText("لقد انتهيت تقريبا"),
-              12.hSize,
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextWidget("تم ارسال بريد الكتروني إلى"),
-                  TextWidget(" Mohamedali@gmail.com ",color: AppColors.secondColor,)
-                ],
-              ),
-              const TextWidget("يحتوي على كود تفعيل التحقق"),
-              12.hSize,
-              Image.asset("great".getPngAsset),
-              12.hSize,
-              Form(
-                key: formKey,
-                child: Pinput(
-                    controller: codeController,
-                    length: 5,
-                    obscuringCharacter: '•',
-                    defaultPinTheme: defaultPinTheme,
-                    autofocus: true,
-                    focusedPinTheme: defaultPinTheme.copyWith(
-                      decoration: defaultPinTheme.decoration?.copyWith(
-                        border: Border.all(
-                          color: AppColors.secondColor,
-                          width: 2,
+                  ],
+                ),
+                const TextWidget("خطوة 10/9"),
+                12.hSize,
+                const TextWidget.bigText("لقد انتهيت تقريبا"),
+                12.hSize,
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextWidget("تم ارسال بريد الكتروني إلى"),
+                    TextWidget(" Mohamedali@gmail.com ",color: AppColors.secondColor,)
+                  ],
+                ),
+                const TextWidget("يحتوي على كود تفعيل التحقق"),
+                12.hSize,
+                Image.asset("great".getPngAsset),
+                12.hSize,
+                Form(
+                  key: formKey,
+                  child: Pinput(
+                      controller: codeController,
+                      length: 5,
+                      obscuringCharacter: '•',
+                      defaultPinTheme: defaultPinTheme,
+                      autofocus: true,
+                      focusedPinTheme: defaultPinTheme.copyWith(
+                        decoration: defaultPinTheme.decoration?.copyWith(
+                          border: Border.all(
+                            color: AppColors.secondColor,
+                            width: 2,
+                          ),
                         ),
                       ),
-                    ),
-                    submittedPinTheme: defaultPinTheme.copyWith(
-                      decoration: defaultPinTheme.decoration?.copyWith(
-                        color: const Color.fromRGBO(234, 239, 243, 1),
+                      submittedPinTheme: defaultPinTheme.copyWith(
+                        decoration: defaultPinTheme.decoration?.copyWith(
+                          color: const Color.fromRGBO(234, 239, 243, 1),
+                        ),
                       ),
-                    ),
-                    pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
-                    showCursor: true,
-                    onCompleted: (pin) {
-                      print(pin);
-                    }),
-              ),
-              44.hSize,
-              CustomButtonWidget(
-                "التالي",
-                color: AppColors.whiteColor,
-                backgroundColor: AppColors.mainColor,
-                width: double.infinity,
-                onPressed: () {
-                  AppRoutes.routeTo(context, const TenStepScreen());
-                },
-              ),
-            ],
+                      pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
+                      showCursor: true,
+                      onCompleted: (pin) {
+                        print(pin);
+                      }),
+                ),
+                44.hSize,
+                CustomButtonWidget(
+                  "التالي",
+                  color: AppColors.whiteColor,
+                  backgroundColor: AppColors.mainColor,
+                  width: double.infinity,
+                  onPressed: () {
+                    AppRoutes.routeTo(context, const TenStepScreen());
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
