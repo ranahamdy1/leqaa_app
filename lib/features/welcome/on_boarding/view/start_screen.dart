@@ -61,7 +61,7 @@ class StartScreen extends StatelessWidget {
                     backgroundColor: AppColors.mainColor,
                     width: 155,
                     onPressed: () {
-                      AppRoutes.routeTo(context, SignUpScreen());
+                      AppRoutes.routeTo(context, const SignUpScreen());
                     },
                   ),
                   12.wSize,

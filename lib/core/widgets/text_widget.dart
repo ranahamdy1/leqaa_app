@@ -73,7 +73,7 @@ class TextWidget extends StatelessWidget {
       overflow: overflow ?? TextOverflow.ellipsis,
       textDirection: textDirection,
       textAlign: TextAlign.center,
-      maxLines: 2,
+      maxLines: 3,
       style: TextStyle(
         color: color,
         fontSize: fontSize,

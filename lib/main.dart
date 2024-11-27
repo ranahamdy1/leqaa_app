@@ -7,7 +7,7 @@ import 'package:leqaa_app/core/helper/cache_helper.dart';
 import 'package:leqaa_app/core/helper/dio_helper.dart';
 import 'package:leqaa_app/features/welcome/splash/splash_screen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   Bloc.observer = const SimpleBlocObserver();
@@ -15,15 +15,18 @@ void main() async{
   await DioHelper.init();
   await Hive.initFlutter();
   var box = await Hive.openBox('data');
+
   runApp(
     EasyLocalization(
-        supportedLocales: const [Locale('ar'), Locale('en')],
-        path: 'assets/translations',
-        fallbackLocale: const Locale('ar'),
-        child: const MyApp(),
+      supportedLocales: const [Locale('ar'), Locale('en')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('ar'),
+      startLocale: const Locale('ar'),
+      child: const MyApp(),
     ),
   );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

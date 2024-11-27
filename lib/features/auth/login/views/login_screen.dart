@@ -74,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                     const TextWidget(" ليس لديك حساب ",fontFamily: 'Somar',),
                     InkWell(
                         onTap: (){
-                          AppRoutes.routeTo(context, SignUpScreen());
+                          AppRoutes.routeTo(context, const SignUpScreen());
                         },
                         child: const TextWidget(" سجل الان",color: AppColors.secondColor,fontFamily: "Somar",)),
                   ],
