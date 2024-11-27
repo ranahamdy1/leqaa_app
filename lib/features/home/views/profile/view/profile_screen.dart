@@ -3,9 +3,9 @@ import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
-import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/home/views/profile/widgets/hoppies_widget.dart';
+import 'package:leqaa_app/features/home/views/profile/view/profile_three_screen.dart';
+import 'package:leqaa_app/features/home/views/profile/view/profile_two_screen.dart';
 import 'package:leqaa_app/features/home/views/profile/widgets/profile_main_info_widget.dart';
 import 'package:leqaa_app/features/home/views/profile/widgets/profile_widget.dart';
 
@@ -99,20 +99,6 @@ class ProfileScreen extends StatelessWidget {
                     12.hSize,
                     const ProfileWidget(),
                     const ProfileMainInfoWidget(),
-                    const ProfileMainInfoWidget(),
-                    const HoppiesWidget(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CustomButtonWidget(
-                        " مزيد من المعلومات حول سارة",
-                        width: double.infinity,
-                        color: AppColors.whiteColor,
-                        backgroundColor: AppColors.secondColor,
-                        onPressed: () {
-                          // AppRoutes.routeTo(context, const MainNavigationScreen());
-                        },
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -130,8 +116,16 @@ class ProfileScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset('x3'.getPngAsset),
-                      Image.asset('x2'.getPngAsset),
+                      InkWell(
+                          onTap: (){
+                            AppRoutes.routeTo(context, const ProfileTwoScreen());
+                          },
+                          child: Image.asset('x3'.getPngAsset)),
+                      InkWell(
+                          onTap: (){
+                            AppRoutes.routeTo(context, const ProfileThreeScreen());
+                          },
+                          child: Image.asset('x2'.getPngAsset)),
                       Image.asset('x'.getPngAsset),
                     ],
                   ),

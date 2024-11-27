@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
-import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 
