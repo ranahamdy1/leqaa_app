@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                         child: const TextWidget("هل نسيت كلمة المرور ؟",color: AppColors.secondColor,)),
                   ],
                 ),
-                66.hSize,
+                188.hSize,
                 CustomButtonWidget(
                     "تسجيل دخول",
                     width: double.infinity,

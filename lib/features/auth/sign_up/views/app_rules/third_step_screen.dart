@@ -34,9 +34,9 @@ class ThirdStepScreen extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 28.0),
                         child: SizedBox(
-                          height: 13,
+                          height: 9,
                           child: LinearProgressBar(
-                            maxSteps: 9,
+                            maxSteps: 10,
                             currentStep: currentStep,
                             progressType: LinearProgressBar.progressTypeLinear, // Use Linear progress
                             dotsActiveSize: 55,

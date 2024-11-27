@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
+import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
+import 'package:leqaa_app/features/home/views/profile/view/profile_screen.dart';
 
 class HomeContainerWidget extends StatelessWidget {
   const HomeContainerWidget({super.key,});
@@ -28,7 +30,11 @@ class HomeContainerWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset("home_image".getPngAsset),
+            SizedBox(
+                height: 66,
+                width: 66,
+                child: Image.asset("home_image".getPngAsset),
+            ),
             9.wSize,
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -46,19 +52,24 @@ class HomeContainerWidget extends StatelessWidget {
                 5.hSize,
                 Row(
                   children: [
-                    Container(
-                      width: 99,
-                      height: 33,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                          color: AppColors.pageControllerColor
-                      ),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.remove_red_eye_outlined,color: Colors.white,size: 13,),
-                          3.wSize,
-                          const TextWidget.smallText("مشاهدة  ملف سارة",color: Colors.white,fontSize: 9,)
-                        ],
+                    InkWell(
+                      onTap: (){
+                        AppRoutes.routeTo(context, const ProfileScreen());
+                      },
+                      child: Container(
+                        width: 99,
+                        height: 33,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            color: AppColors.pageControllerColor
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.remove_red_eye_outlined,color: Colors.white,size: 13,),
+                            3.wSize,
+                            const TextWidget.smallText("مشاهدة  ملف سارة",color: Colors.white,fontSize: 9,)
+                          ],
+                        ),
                       ),
                     ),
                     5.wSize,

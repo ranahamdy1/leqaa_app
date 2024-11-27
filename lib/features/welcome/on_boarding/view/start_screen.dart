@@ -20,7 +20,7 @@ class StartScreen extends StatelessWidget {
       key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(28.0),
+          padding: const EdgeInsets.all(18.0),
           child: Column(
             children: [
               44.hSize,
@@ -35,10 +35,10 @@ class StartScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      if(context.locale == const Locale('en')){
-                        context.setLocale(const Locale("ar"));
-                      }else{
+                      if(context.locale == const Locale('ar')){
                         context.setLocale(const Locale("en"));
+                      }else{
+                        context.setLocale(const Locale("ar"));
                       }
                     },
                     child: Image.asset("left_image".getPngAsset),
@@ -51,7 +51,6 @@ class StartScreen extends StatelessWidget {
               TextWidget.bigText("startScreenBigText".tr()),
               44.hSize,
               TextWidget.smallText("startScreenSmallTextOne".tr()),
-              TextWidget.smallText("startScreenSmallTextTwo".tr()),
               122.hSize,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

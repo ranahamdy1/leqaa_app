@@ -53,10 +53,16 @@ class OnBoardingScreen extends StatelessWidget {
                               ),
                             ),
                             33.hSize,
-                            TextWidget.bigText(onBoarding.onBoardingList[i].title),
-                            33.hSize,
-                            TextWidget.smallText(onBoarding.onBoardingList[i].body),
-                            TextWidget.smallText(onBoarding.onBoardingList[i].body2),
+                            Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Column(
+                                children: [
+                                  TextWidget.bigText(onBoarding.onBoardingList[i].title),
+                                  33.hSize,
+                                  TextWidget.smallText(onBoarding.onBoardingList[i].body),
+                                ],
+                              ),
+                            ),
                             Padding(
                               padding: const EdgeInsets.only(top: 28.0),
                               child: Row(
@@ -72,58 +78,51 @@ class OnBoardingScreen extends StatelessWidget {
                                           decoration: BoxDecoration(
                                             color: index == onBoarding.currentPage
                                                 ? AppColors.pageControllerColor
-                                                : AppColors.pageControllerColor,
+                                                : AppColors.pageControllerColorWithOpacity,
                                             borderRadius: BorderRadius.circular(4),
                                           ),
                                         ),
                                 ),
                               ),
                             ),
-                            22.hSize,
-                            onBoarding.currentPage == onBoarding.onBoardingList.length - 1
-                                ? Padding(
-                                    padding: const EdgeInsets.all(28.0),
-                                    child: CustomButtonWidget(
-                                      "ابدأ",
-                                      color: AppColors.whiteColor,
-                                      backgroundColor: AppColors.mainColor,
-                                      width: double.infinity,
-                                      onPressed: (){
-                                        AppRoutes.routeAndRemoveAllTo(context, StartScreen());
-                                      },
-                                    ),
-                                  )
-                                : Padding(
-                                    padding: const EdgeInsets.all(28.0),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        CustomButtonWidget(
-                                          "next".tr(),
-                                          color: AppColors.whiteColor,
-                                          backgroundColor: AppColors.mainColor,
-                                          width: 155,
-                                          onPressed: (){
-                                            context.read<OnBoardingCubit>().next();
-                                          },
-                                        ),
-                                        CustomButtonWidget(
-                                          "skip".tr(),
-                                          color: AppColors.secondColor,
-                                          backgroundColor: AppColors.whiteColor,
-                                          width: 155,
-                                          onPressed: () {
-                                           AppRoutes.routeAndRemoveAllTo(context, StartScreen());
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                            33.hSize,
                           ],
                         ),
                       ),
                     ),
+                    onBoarding.currentPage == onBoarding.onBoardingList.length - 1
+                        ? Padding(
+                      padding: const EdgeInsets.all(28.0),
+                      child: CustomButtonWidget(
+                        "ابدأ",
+                        color: AppColors.whiteColor,
+                        backgroundColor: AppColors.mainColor,
+                        width: double.infinity,
+                        onPressed: (){
+                          AppRoutes.routeAndRemoveAllTo(context, StartScreen());
+                        },
+                      ),
+                    )
+                        : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomButtonWidget(
+                          "next".tr(),
+                          color: AppColors.whiteColor,
+                          backgroundColor: AppColors.mainColor,
+                          width: 155,
+                          onPressed: (){
+                            context.read<OnBoardingCubit>().next();
+                          },
+                        ),
+                        22.wSize,
+                        InkWell(
+                            onTap: (){
+                              AppRoutes.routeAndRemoveAllTo(context, StartScreen());
+                            },
+                            child: TextWidget.bigText("skip".tr(),color: AppColors.secondColor,)),
+                      ],
+                    ),
+                    77.hSize,
                   ],
                 ),
               ),

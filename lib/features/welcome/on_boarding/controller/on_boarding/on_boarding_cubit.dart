@@ -10,19 +10,16 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     OnBoardingModel(
         title: "onBoardingOneTitle".tr(),
         body: "onBoardingOneBody1".tr(),
-        body2: "onBoardingOneBody2".tr(),
         image: 'on_boarding'.getPngAsset,
     ),
     OnBoardingModel(
         title: "خيارات بحث متقدمة",
-        body: "يتيح لك التطبيق البحث عن شريك حياتك المثالي بناء",
-        body2: " على معايير مثل الدين والتعليم والشخصية والموقع والاهتمامات",
+        body: "يتيح لك التطبيق البحث عن شريك حياتك المثالي بناء على معايير مثل الدين والتعليم والشخصية والموقع والاهتمامات",
         image: 'on_boarding'.getPngAsset
     ),
     OnBoardingModel(
         title: "ميزات الأمان والخصوصية",
-        body: "يولي التطبيق أهمية قصوى للأمان والخصوصية،",
-        body2: " لذلك يمكنك التواصل مع أعضاء آخرين بثقة.",
+        body: "يولي التطبيق أهمية قصوى للأمان والخصوصية، لذلك يمكنك التواصل مع أعضاء آخرين بثقة",
         image: 'on_boarding'.getPngAsset
     )
   ];

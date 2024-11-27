@@ -20,10 +20,10 @@ class NineStepScreen extends StatelessWidget {
     height: 56,
     textStyle: const TextStyle(
         fontSize: 20,
-        color: Color.fromRGBO(30, 60, 87, 1),
+        color: AppColors.mainColor,
         fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
-      border: Border.all(color: AppColors.babyGreyColor),
+      border: Border.all(color: AppColors.smallTextColor),
       borderRadius: BorderRadius.circular(5),
     ),
   );
@@ -96,7 +96,7 @@ class NineStepScreen extends StatelessWidget {
                       ),
                       submittedPinTheme: defaultPinTheme.copyWith(
                         decoration: defaultPinTheme.decoration?.copyWith(
-                          color: const Color.fromRGBO(234, 239, 243, 1),
+                          color: AppColors.babyPinkColor,
                         ),
                       ),
                       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,

@@ -6,15 +6,23 @@ import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/custom_text_form_feild.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
+import 'package:leqaa_app/features/auth/login/views/login_screen.dart';
 import 'package:leqaa_app/features/auth/sign_up/views/app_rules/app_rules_screen.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final birthDayController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -76,8 +84,16 @@ class SignUpScreen extends StatelessWidget {
                 22.hSize,
                 Row(
                   children: [
+                    isChecked == false?
+                    Checkbox(
+                      value: isChecked,
+                      onChanged: (bool? newValue) {
+                        setState(() {
+                          isChecked = newValue!;
+                        });
+                      },
+                    ):
                     Image.asset("check".getPngAsset),
-                    9.wSize,
                     const TextWidget("لقد قرأت ",fontFamily: "Somar",),
                     const TextWidget("الشروط والاحكام",color: AppColors.secondColor,fontFamily: "Somar",),
                     const TextWidget(" ووافقت عليها",fontFamily: "Somar",),
@@ -94,11 +110,15 @@ class SignUpScreen extends StatelessWidget {
                 }
                 ),
                 12.hSize,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextWidget(" لدي حساب بالفعل ",fontFamily: 'Somar',),
-                    TextWidget(" تسجيل دخول",color: AppColors.secondColor,fontFamily: "Somar",),
+                    const TextWidget(" لدي حساب بالفعل ",fontFamily: 'Somar',),
+                    InkWell(
+                        onTap: (){
+                          AppRoutes.routeTo(context, LoginScreen());
+                        },
+                        child: const TextWidget(" تسجيل دخول",color: AppColors.secondColor,fontFamily: "Somar",)),
                   ],
                 )
               ],

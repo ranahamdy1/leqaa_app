@@ -19,7 +19,7 @@ class VerificationCodeScreen extends StatelessWidget {
     height: 56,
     textStyle: const TextStyle(
         fontSize: 20,
-        color: Color.fromRGBO(30, 60, 87, 1),
+        color: AppColors.mainColor,
         fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
       border: Border.all(color: AppColors.smallTextColor),
@@ -33,7 +33,7 @@ class VerificationCodeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: 28.aEdge,
+            padding: 26.aEdge,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -45,7 +45,7 @@ class VerificationCodeScreen extends StatelessWidget {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    TextWidget.mediumText("تحقق من بريدك الالكتروني وادخل رمز التحقق لتغيير كلمة المرور "),
+                    TextWidget.smallText("تحقق من بريدك الالكتروني وادخل رمز التحقق لتغيير كلمة المرور "),
                   ],
                 ),
                 22.hSize,
@@ -67,7 +67,7 @@ class VerificationCodeScreen extends StatelessWidget {
                       ),
                       submittedPinTheme: defaultPinTheme.copyWith(
                         decoration: defaultPinTheme.decoration?.copyWith(
-                          color: const Color.fromRGBO(234, 239, 243, 1),
+                          color: AppColors.babyPinkColor,
                         ),
                       ),
                       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,

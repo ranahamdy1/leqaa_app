@@ -16,13 +16,13 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            33.hSize,
+            22.hSize,
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.4,
               child: Image.asset("splash_top_png".getPngAsset),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.1,
               child: AnimatedSplashScreen(
                 duration: 1500,
                 splashIconSize: 200,

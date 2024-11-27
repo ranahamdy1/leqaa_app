@@ -17,7 +17,7 @@ void main() async{
   var box = await Hive.openBox('data');
   runApp(
     EasyLocalization(
-        supportedLocales: const [Locale('en'), Locale('ar')],
+        supportedLocales: const [Locale('ar'), Locale('en')],
         path: 'assets/translations',
         fallbackLocale: const Locale('ar'),
         child: const MyApp(),

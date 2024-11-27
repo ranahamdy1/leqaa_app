@@ -74,11 +74,11 @@ class SixStepScreen extends StatelessWidget {
                     hintText: 'مواصفاتك',
                     hintStyle: const TextStyle(color: Colors.grey),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 1.5),
+                      borderSide: BorderSide(color: AppColors.babyGreyColor, width: 1.5),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.grey),
+                      borderSide: const BorderSide(color: AppColors.babyGreyColor),
                     ),
                   ),
                 ),
@@ -90,11 +90,11 @@ class SixStepScreen extends StatelessWidget {
                     hintText: 'مواصفات شريك حياتك',
                     hintStyle: const TextStyle(color: Colors.grey),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 1.5),
+                      borderSide: BorderSide(color: AppColors.babyGreyColor, width: 1.5),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.grey),
+                      borderSide: const BorderSide(color: AppColors.babyGreyColor),
                     ),
                   ),
                 ),
