@@ -71,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   height: 400,
                                   onPageChanged: (index, reason) {
                                     setState(() {
-                                      _currentIndex = index; // Update the index when page changes
+                                      _currentIndex = index;
                                     });
                                   },
                                 ),

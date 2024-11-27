@@ -58,7 +58,7 @@ class FavouriteWidget extends StatelessWidget {
                 5.hSize,
                 InkWell(
                   onTap: (){
-                    AppRoutes.routeTo(context, ProfileScreen());
+                    AppRoutes.routeTo(context, const ProfileScreen());
                   },
                   child: Row(
                     children: [
