@@ -54,7 +54,7 @@ class HomeContainerWidget extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: (){
-                        AppRoutes.routeTo(context, const ProfileScreen());
+                        AppRoutes.routeTo(context, ProfileScreen());
                       },
                       child: Container(
                         width: 99,

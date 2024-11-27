@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
@@ -9,8 +10,21 @@ import 'package:leqaa_app/features/home/views/profile/view/profile_two_screen.da
 import 'package:leqaa_app/features/home/views/profile/widgets/profile_main_info_widget.dart';
 import 'package:leqaa_app/features/home/views/profile/widgets/profile_widget.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final List<String> urlImages = [
+    "profile_image".getPngAsset,
+    "profile_image".getPngAsset,
+    "profile_image".getPngAsset,
+  ];
+
+  int _currentIndex = 0; // Track the current index of the image
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +49,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         22.wSize,
                         const TextWidget.bigText("الملف الشخصي"),
-                        99.wSize
+                        99.wSize,
                       ],
                     ),
                     22.hSize,
@@ -44,10 +58,25 @@ class ProfileScreen extends StatelessWidget {
                       child: Stack(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
                             child: SizedBox(
-                                width: 364,
-                                child: Image.asset("profile_image".getPngAsset)),
+                              width: 444,
+                              child: CarouselSlider.builder(
+                                itemCount: urlImages.length,
+                                itemBuilder: (BuildContext context, int index, int pageViewIndex) {
+                                  final urlImage = urlImages[index];
+                                  return buildImage(urlImage);
+                                },
+                                options: CarouselOptions(
+                                  height: 400,
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      _currentIndex = index; // Update the index when page changes
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -60,10 +89,8 @@ class ProfileScreen extends StatelessWidget {
                               ),
                               child: const Row(
                                 children: [
-                                  Icon(Icons.location_on_outlined,
-                                      color: AppColors.pageControllerColor),
-                                  TextWidget.mediumText("الكويت",
-                                      color: AppColors.secondColor)
+                                  Icon(Icons.location_on_outlined, color: AppColors.pageControllerColor),
+                                  TextWidget.mediumText("الكويت", color: AppColors.secondColor),
                                 ],
                               ),
                             ),
@@ -75,15 +102,15 @@ class ProfileScreen extends StatelessWidget {
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: List.generate(
-                                  3,
+                                  urlImages.length,
                                       (index) => AnimatedContainer(
                                     duration: const Duration(milliseconds: 500),
                                     curve: Curves.bounceInOut,
-                                    width: index == 1 ? 44 : 8,
+                                    width: index == _currentIndex ? 44 : 8, // Highlight the current index
                                     height: 8,
                                     margin: const EdgeInsets.all(2),
                                     decoration: BoxDecoration(
-                                      color: index == 1
+                                      color: index == _currentIndex
                                           ? AppColors.pageControllerColor
                                           : AppColors.pageControllerColor,
                                       borderRadius: BorderRadius.circular(4),
@@ -117,15 +144,17 @@ class ProfileScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       InkWell(
-                          onTap: (){
-                            AppRoutes.routeTo(context, const ProfileTwoScreen());
-                          },
-                          child: Image.asset('x3'.getPngAsset)),
+                        onTap: () {
+                          AppRoutes.routeTo(context, const ProfileTwoScreen());
+                        },
+                        child: Image.asset('x3'.getPngAsset),
+                      ),
                       InkWell(
-                          onTap: (){
-                            AppRoutes.routeTo(context, const ProfileThreeScreen());
-                          },
-                          child: Image.asset('x2'.getPngAsset)),
+                        onTap: () {
+                          AppRoutes.routeTo(context, const ProfileThreeScreen());
+                        },
+                        child: Image.asset('x2'.getPngAsset),
+                      ),
                       Image.asset('x'.getPngAsset),
                     ],
                   ),
@@ -137,5 +166,9 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
   }
-}
 
+  Widget buildImage(String urlImage) => Container(
+    margin: const EdgeInsets.symmetric(horizontal: 5),
+    child: Image.asset(urlImage, fit: BoxFit.cover),
+  );
+}
