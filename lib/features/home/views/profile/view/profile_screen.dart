@@ -24,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     "profile_image".getPngAsset,
   ];
 
-  int _currentIndex = 0; // Track the current index of the image
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
