@@ -10,10 +10,17 @@ import 'package:leqaa_app/features/auth/forget_password/view/forget_password_scr
 import 'package:leqaa_app/features/auth/sign_up/views/sign_up/sign_up_screen.dart';
 import 'package:leqaa_app/features/home/views/main_navigation/main_navigation_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,19 @@ class LoginScreen extends StatelessWidget {
                   kbType: TextInputType.visiblePassword,
                   controller: passwordController,
                   onChanged: (value) {  },
-                  suffixIcon: const Icon(Icons.remove_red_eye_outlined,color: AppColors.mainColor,),
+                  isObscureText: _obscureText,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.remove_red_eye_outlined,
+                      color: AppColors.mainColor,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      }
+                      );
+                    },
+                  ),
                 ),
                 12.hSize,
                 Row(

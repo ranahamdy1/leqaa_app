@@ -79,7 +79,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(18.0),
                             child: Container(
                               width: 73,
                               height: 26,
@@ -98,7 +98,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Align(
                             alignment: Alignment.bottomCenter,
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 28.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: List.generate(
@@ -106,13 +106,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       (index) => AnimatedContainer(
                                     duration: const Duration(milliseconds: 500),
                                     curve: Curves.bounceInOut,
-                                    width: index == _currentIndex ? 44 : 8, // Highlight the current index
+                                    width: index == _currentIndex ? 44 : 8,
                                     height: 8,
                                     margin: const EdgeInsets.all(2),
                                     decoration: BoxDecoration(
                                       color: index == _currentIndex
                                           ? AppColors.pageControllerColor
-                                          : AppColors.pageControllerColor,
+                                          : AppColors.pageControllerColorWithOpacity,
                                       borderRadius: BorderRadius.circular(4),
                                     ),
                                   ),

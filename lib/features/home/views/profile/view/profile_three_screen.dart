@@ -47,7 +47,7 @@ class ProfileThreeScreen extends StatelessWidget {
                             child: Image.asset("profile_image".getPngAsset)),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(18.0),
                         child: Container(
                           width: 73,
                           height: 26,
@@ -68,7 +68,7 @@ class ProfileThreeScreen extends StatelessWidget {
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 28.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: List.generate(

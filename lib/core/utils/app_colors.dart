@@ -10,6 +10,6 @@ class AppColors {
   static const Color pageControllerColor = Color(0xFF83D9FB);
   static const Color babyGreyColor = Color(0xFFF6F6F6);
   static const Color babyPinkColor = Color(0xFFFBE9F1);
-  static const Color pageControllerColorWithOpacity = Color(0x1A83D9FB);
+  static const Color pageControllerColorWithOpacity = Color(0xFFCEF0FD);
 
 }

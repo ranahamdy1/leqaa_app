@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.only(top: 18.0,left: 18.0,right: 18.0),
         child: GestureDetector(
           behavior: HitTestBehavior.translucent,
           onTap: () {

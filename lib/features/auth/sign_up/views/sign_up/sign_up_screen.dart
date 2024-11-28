@@ -23,6 +23,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   bool isChecked = false;
+  bool _obscureText = true;
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   kbType: TextInputType.number,
                   controller: birthDayController,
                   onChanged: (value) {  },
-                  suffixIcon: const Icon(Icons.date_range_outlined,color: AppColors.mainColor,),
+                  suffixIcon: IconButton(
+                    icon: const Icon(
+                      Icons.date_range_outlined,
+                      color: AppColors.mainColor,
+                    ),
+                    onPressed: () async {
+                      DateTime? pickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1900),
+                        lastDate: DateTime.now(),
+                      );
+
+                      if (pickedDate != null) {
+                        birthDayController.text =
+                        "${pickedDate.year}-${pickedDate.month.toString().padLeft(2, '0')}-${pickedDate.day.toString().padLeft(2, '0')}";
+                      }
+                    },
+                  ),
                 ),
                 12.hSize,
                 CustomTextFormField(
@@ -69,8 +89,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   labelText: 'كلمة المرور',
                   kbType: TextInputType.visiblePassword,
                   controller: passwordController,
+                  isObscureText: _obscureText,
                   onChanged: (value) {  },
-                  suffixIcon: const Icon(Icons.remove_red_eye_outlined,color: AppColors.mainColor,),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.remove_red_eye_outlined,
+                      color: AppColors.mainColor,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  ),
                 ),
                 12.hSize,
                 CustomTextFormField(
@@ -79,7 +110,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   kbType: TextInputType.visiblePassword,
                   controller: confirmPasswordController,
                   onChanged: (value) {  },
-                  suffixIcon: const Icon(Icons.remove_red_eye_outlined,color: AppColors.mainColor,),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.remove_red_eye_outlined,
+                      color: AppColors.mainColor,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  ),
                 ),
                 22.hSize,
                 Row(
