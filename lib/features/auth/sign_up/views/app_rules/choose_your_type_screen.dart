@@ -70,6 +70,7 @@ class _ChooseYourTypeScreenState extends State<ChooseYourTypeScreen> {
                   "التالي",
                   color: AppColors.whiteColor,
                   backgroundColor: AppColors.mainColor,
+                  borderColor: AppColors.mainColor,
                   width: double.infinity,
                   onPressed: () {
                     _incrementStep();

@@ -96,6 +96,7 @@ class OnBoardingScreen extends StatelessWidget {
                         "ابدأ",
                         color: AppColors.whiteColor,
                         backgroundColor: AppColors.mainColor,
+                        borderColor: AppColors.mainColor,
                         width: double.infinity,
                         onPressed: (){
                           AppRoutes.routeAndRemoveAllTo(context, StartScreen());
@@ -109,6 +110,7 @@ class OnBoardingScreen extends StatelessWidget {
                           "next".tr(),
                           color: AppColors.whiteColor,
                           backgroundColor: AppColors.mainColor,
+                          borderColor: AppColors.mainColor,
                           width: 155,
                           onPressed: (){
                             context.read<OnBoardingCubit>().next();

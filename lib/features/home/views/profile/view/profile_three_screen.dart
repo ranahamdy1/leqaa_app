@@ -101,6 +101,7 @@ class ProfileThreeScreen extends StatelessWidget {
                   child: CustomButtonWidget(
                     " مزيد من المعلومات حول سارة",
                     width: double.infinity,
+                    borderColor: AppColors.secondColor,
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.secondColor,
                     onPressed: () {

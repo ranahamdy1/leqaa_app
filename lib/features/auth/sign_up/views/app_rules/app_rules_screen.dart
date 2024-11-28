@@ -67,6 +67,7 @@ class AppRulesScreen extends StatelessWidget {
                       "موافق",
                       color: AppColors.whiteColor,
                       backgroundColor: AppColors.mainColor,
+                      borderColor: AppColors.mainColor,
                       width: 144,
                       onPressed: (){
                         AppRoutes.routeTo(context, const ChooseYourTypeScreen());
@@ -76,6 +77,7 @@ class AppRulesScreen extends StatelessWidget {
                       "إلغاء",
                       color: AppColors.whiteColor,
                       backgroundColor: AppColors.secondColor,
+                      borderColor: AppColors.secondColor,
                       width: 144,
                       onPressed: () {
                       },

@@ -47,6 +47,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                     width: double.infinity,
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.mainColor,
+                    borderColor: AppColors.mainColor,
                     onPressed: (){
                       AppRoutes.routeTo(context, VerificationCodeScreen());
                     }

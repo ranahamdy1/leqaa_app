@@ -5,6 +5,7 @@ import 'package:leqaa_app/features/home/views/chat/view/chat_screen.dart';
 import 'package:leqaa_app/features/home/views/favourite/view/favourite_screen.dart';
 import 'package:leqaa_app/features/home/views/home/view/home_screen.dart';
 import 'package:leqaa_app/features/home/views/main_navigation/widget/selection_icon_widget.dart';
+import 'package:leqaa_app/features/home/views/main_profile/views/main_profile_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -101,7 +102,7 @@ class _NavigationExampleState extends State<MainNavigationScreen> {
           const HomeScreen(),
           const ChatScreen(),
           const FavouriteScreen(),
-          const ChatScreen(),
+          const MainProfileScreen(),
           //const ProfileScreen(),
         ][currentPageIndex],
       ),

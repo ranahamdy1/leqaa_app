@@ -70,6 +70,7 @@ class SevenStepScreen extends StatelessWidget {
                 "التالي",
                 color: AppColors.whiteColor,
                 backgroundColor: AppColors.mainColor,
+                borderColor: AppColors.mainColor,
                 width: double.infinity,
                 onPressed: (){
                   AppRoutes.routeTo(context, EightStepScreen(currentStep: currentStep + 1),);

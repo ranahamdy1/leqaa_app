@@ -95,6 +95,7 @@ class ThirdStepScreen extends StatelessWidget {
                   "التالي",
                   color: AppColors.whiteColor,
                   backgroundColor: AppColors.mainColor,
+                  borderColor: AppColors.mainColor,
                   width: double.infinity,
                   onPressed: (){
                     AppRoutes.routeTo(context, FourthStepScreen(currentStep: currentStep + 1),);

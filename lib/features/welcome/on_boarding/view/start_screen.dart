@@ -59,6 +59,7 @@ class StartScreen extends StatelessWidget {
                     "signUp".tr(),
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.mainColor,
+                    borderColor: AppColors.mainColor,
                     width: 155,
                     onPressed: () {
                       AppRoutes.routeTo(context, const SignUpScreen());
@@ -69,6 +70,7 @@ class StartScreen extends StatelessWidget {
                     "login".tr(),
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.secondColor,
+                    borderColor: AppColors.secondColor,
                     width: 155,
                     onPressed: () {
                       AppRoutes.routeTo(context, LoginScreen());

@@ -2,16 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
-import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/auth/sign_up/views/app_rules/nine_step_screen.dart';
-import 'package:leqaa_app/features/auth/sign_up/views/widgets/eight_screen_widget.dart';
+import 'package:leqaa_app/features/home/views/main_profile/widgets/edit_hoppies_widget.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 
-class EightStepScreen extends StatelessWidget {
-  final int currentStep;
-  const EightStepScreen({super.key, required this.currentStep});
+class EditHoppiesScreen extends StatefulWidget {
+  const EditHoppiesScreen({super.key});
+
+  @override
+  _EditHoppiesScreenState createState() => _EditHoppiesScreenState();
+}
+
+class _EditHoppiesScreenState extends State<EditHoppiesScreen> {
+  final List<bool> _selectedHobbies = [false, false, false, false, false, false, false];
+
+  void _toggleSelection(int index) {
+    setState(() {
+      _selectedHobbies[index] = !_selectedHobbies[index];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +45,7 @@ class EightStepScreen extends StatelessWidget {
                         height: 9,
                         child: LinearProgressBar(
                           maxSteps: 10,
-                          currentStep: currentStep,
+                          currentStep: 1,
                           progressType: LinearProgressBar.progressTypeLinear,
                           dotsActiveSize: 55,
                           progressColor: AppColors.pageControllerColor,
@@ -47,27 +57,42 @@ class EightStepScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const TextWidget("خطوة 10/8"),
+              const TextWidget.bigText("تعديل الهوايات"),
               12.hSize,
-              const TextWidget.bigText("أضف هواياتك"),
-              12.hSize,
-              const Row(
-                children: [
-                  EightScreenWidget(image: 'movie', text: 'مشاهدة الافلام'),
-                  EightScreenWidget(image: 'movie', text: 'مشاهدة الافلام'),
-                  EightScreenWidget(image: 'movie', text: 'مشاهدة الافلام'),
-                ],
+              Row(
+                children: List.generate(3, (index) {
+                  return GestureDetector(
+                    onTap: () => _toggleSelection(index),
+                    child: EditHoppiesScreenWidget(
+                      image: 'movie',
+                      text: 'مشاهدة الافلام',
+                      selected: _selectedHobbies[index],
+                    ),
+                  );
+                }),
               ),
-              const Row(
-                children: [
-                  EightScreenWidget(image: 'movie', text: 'مشاهدة الافلام'),
-                  EightScreenWidget(image: 'movie', text: 'مشاهدة الافلام'),
-                  EightScreenWidget(image: 'movie', text: 'مشاهدة الافلام'),
-                ],
+              Row(
+                children: List.generate(3, (index) {
+                  return GestureDetector(
+                    onTap: () => _toggleSelection(index + 3),
+                    child: EditHoppiesScreenWidget(
+                      image: 'movie',
+                      text: 'مشاهدة الافلام',
+                      selected: _selectedHobbies[index + 3],
+                    ),
+                  );
+                }),
               ),
-              const Row(
+              Row(
                 children: [
-                  EightScreenWidget(image: 'movie', text: 'مشاهدة الافلام'),
+                  GestureDetector(
+                    onTap: () => _toggleSelection(6),
+                    child: EditHoppiesScreenWidget(
+                      image: 'movie',
+                      text: 'مشاهدة الافلام',
+                      selected: _selectedHobbies[6],
+                    ),
+                  ),
                 ],
               ),
               88.hSize,
@@ -78,7 +103,7 @@ class EightStepScreen extends StatelessWidget {
                 borderColor: AppColors.mainColor,
                 width: double.infinity,
                 onPressed: () {
-                  AppRoutes.routeTo(context, NineStepScreen(currentStep: currentStep + 1),);
+                  // AppRoutes.routeTo(context, NineStepScreen());
                 },
               ),
             ],

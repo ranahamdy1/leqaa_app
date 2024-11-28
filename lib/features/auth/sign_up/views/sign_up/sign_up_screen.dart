@@ -146,6 +146,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   width: double.infinity,
                   color: AppColors.whiteColor,
                   backgroundColor: AppColors.mainColor,
+                    borderColor: AppColors.mainColor,
                   onPressed: (){
                     AppRoutes.routeTo(context, const AppRulesScreen());
                 }

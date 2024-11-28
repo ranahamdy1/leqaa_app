@@ -82,6 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: double.infinity,
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.mainColor,
+                    borderColor: AppColors.mainColor,
                     onPressed: (){
                       AppRoutes.routeTo(context, const MainNavigationScreen());
                     }

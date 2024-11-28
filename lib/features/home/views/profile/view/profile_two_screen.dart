@@ -106,6 +106,7 @@ class ProfileTwoScreen extends StatelessWidget {
                     width: double.infinity,
                     color: AppColors.whiteColor,
                     backgroundColor: AppColors.secondColor,
+                    borderColor: AppColors.secondColor,
                     onPressed: () {
                       // AppRoutes.routeTo(context, const MainNavigationScreen());
                     },
