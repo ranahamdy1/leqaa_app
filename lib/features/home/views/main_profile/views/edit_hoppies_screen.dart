@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
-import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/home/views/main_profile/widgets/edit_hoppies_widget.dart';
-import 'package:linear_progress_bar/linear_progress_bar.dart';
 
 class EditHoppiesScreen extends StatefulWidget {
   const EditHoppiesScreen({super.key});
@@ -31,32 +29,7 @@ class _EditHoppiesScreenState extends State<EditHoppiesScreen> {
           padding: 12.aEdge,
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset("next".getPngAsset),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
-                      child: SizedBox(
-                        height: 9,
-                        child: LinearProgressBar(
-                          maxSteps: 10,
-                          currentStep: 1,
-                          progressType: LinearProgressBar.progressTypeLinear,
-                          dotsActiveSize: 55,
-                          progressColor: AppColors.pageControllerColor,
-                          backgroundColor: AppColors.pageControllerColorWithOpacity,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              33.hSize,
               const TextWidget.bigText("تعديل الهوايات"),
               12.hSize,
               Row(

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
+import 'package:leqaa_app/core/utils/app_assets.dart';
+import 'package:leqaa_app/core/widgets/text_widget.dart';
+import 'package:leqaa_app/features/home/views/chat/widgets/chat_colum_container_widget.dart';
+import 'package:leqaa_app/features/home/views/chat/widgets/chat_row_container_widget.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/search_widget.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -8,11 +12,45 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          22.hSize,
-          const SearchWidget(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.only(left: 18.0,right: 18.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              33.hSize,
+              Row(
+                children: [
+                  const Spacer(),
+                  const TextWidget("الدردشة"),
+                  const Spacer(),
+                  Image.asset("ring".getPngAsset)
+                ],
+              ),
+              18.hSize,
+              const SearchWidget(),
+              18.hSize,
+              SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const ChatRowContainerWidget();
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 555,
+                child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const ChatColumContainerWidget();
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
