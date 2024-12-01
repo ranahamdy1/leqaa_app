@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
@@ -7,6 +6,7 @@ import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
+import 'package:leqaa_app/features/home/views/main_profile/widgets/add_image_widget.dart';
 import 'package:leqaa_app/features/home/views/main_profile/widgets/main_profile_widget.dart';
 
 class UpdateImageScreen extends StatefulWidget {
@@ -50,9 +50,10 @@ class _UpdateImageScreenState extends State<UpdateImageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 18.0,right: 18.0,top: 18.0),
+        padding: const EdgeInsets.only(left: 18.0, right: 18.0, top: 18.0),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               55.hSize,
               Row(
@@ -70,82 +71,56 @@ class _UpdateImageScreenState extends State<UpdateImageScreen> {
                 ],
               ),
               22.hSize,
-              Row(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      _showImagePickerDialog(context);
-                    },
-                    child: pickedImages.isNotEmpty
-                        ? ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
+              SizedBox(
+                height: 150,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: pickedImages.length + 1,
+                  itemBuilder: (BuildContext context, int index) {
+                    if (index < pickedImages.length) {
+                      return InkWell(
+                        onTap: () {
+                          _showImagePickerDialog(context);
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(22),
+                          child: Padding(
+                            padding: 4.aEdge,
                             child: Container(
-                              width: 124,
+                              width: 124, 
                               height: 124,
                               decoration: const BoxDecoration(
                                 color: Colors.black,
                               ),
                               child: Image.file(
-                                File(pickedImages.last.path),
+                                File(pickedImages[index].path),
                                 fit: BoxFit.cover,
-                              ),
-                            ),
-                          )
-                        : Image.asset(
-                            "add_image".getPngAsset,
-                            height: 124,
-                            width: 124,
-                          ),
-                  ),
-                  12.wSize,
-                  InkWell(
-                    onTap: () {
-                      _showImagePickerDialog(context);
-                    },
-                    child: SizedBox(
-                      height: 124,
-                      width: 124,
-                      child: DottedBorder(
-                        borderType: BorderType.RRect,
-                        radius: const Radius.circular(10),
-                        dashPattern: [6, 3],
-                        color: AppColors.secondColor,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.babyPinkColor,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                color: AppColors.whiteColor,
-                                borderRadius: BorderRadius.circular(44),
-                              ),
-                              child: const Icon(
-                                Icons.add,
-                                color: AppColors.secondColor,
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
-                ],
+                      );
+                    } else {
+                      return InkWell(
+                        onTap: () {
+                          _showImagePickerDialog(context);
+                        },
+                        child: const AddImageWidget(),
+                      );
+                    }
+                  },
+                ),
               ),
               12.hSize,
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
+              const MainProfileWidget(text: 'تعديل الملف الشخصي'),
+              const MainProfileWidget(text: 'تعديل الهوايات'),
+              const MainProfileWidget(text: 'تعديل الهوايات'),
+              const MainProfileWidget(text: 'تعديل الهوايات'),
+              const MainProfileWidget(text: 'تعديل الهوايات'),
+              const MainProfileWidget(text: 'تعديل الهوايات'),
+              const MainProfileWidget(text: 'تعديل الهوايات'),
+              const MainProfileWidget(text: 'تعديل الهوايات'),
             ],
           ),
         ),

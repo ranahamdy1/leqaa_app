@@ -6,6 +6,7 @@ import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/discount_widget.dart';
+import 'package:leqaa_app/features/home/views/main_profile/views/edit_hoppies_screen.dart';
 import 'package:leqaa_app/features/home/views/main_profile/views/update_image_screen.dart';
 import 'package:leqaa_app/features/home/views/main_profile/widgets/main_profile_widget.dart';
 
@@ -44,7 +45,7 @@ class MainProfileScreen extends StatelessWidget {
               ),*/
               InkWell(
                 onTap: (){
-                  AppRoutes.routeTo(context, UpdateImageScreen());
+                 //AppRoutes.routeTo(context, const UpdateImageScreen());
                 },
                 child: Container(
                   width: 87,
@@ -64,14 +65,22 @@ class MainProfileScreen extends StatelessWidget {
               12.hSize,
               const DiscountWidget(),
               12.hSize,
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
-              const MainProfileWidget(),
+              InkWell(
+                onTap: (){
+                  AppRoutes.routeTo(context, const UpdateImageScreen());
+                },
+                  child: const MainProfileWidget(text: 'تعديل الملف الشخصي',)),
+              InkWell(
+                onTap: (){
+                  AppRoutes.routeTo(context, const EditHoppiesScreen());
+                },
+                  child: const MainProfileWidget(text: 'تعديل الهوايات',)),
+              const MainProfileWidget(text: 'تعديل الهوايات',),
+              const MainProfileWidget(text: 'تعديل الهوايات',),
+              const MainProfileWidget(text: 'تعديل الهوايات',),
+              const MainProfileWidget(text: 'تعديل الهوايات',),
+              const MainProfileWidget(text: 'تعديل الهوايات',),
+              const MainProfileWidget(text: 'تعديل الهوايات',),
               Padding(
                 padding: const EdgeInsets.only(top: 8.0,left: 8.0,right: 8.0),
                 child: CustomButtonWidget(
