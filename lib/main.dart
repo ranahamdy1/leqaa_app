@@ -8,11 +8,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:leqaa_app/bloc_observer.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   Bloc.observer = const SimpleBlocObserver();
+  _initializeFirebase();
   await CacheHelper.init();
   await DioHelper.init();
   await Hive.initFlutter();
@@ -45,4 +48,10 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
     );
   }
+}
+
+_initializeFirebase() async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "895873717041",
+    "project_id": "test4-b7dcc",
+    "storage_bucket": "test4-b7dcc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895873717041:android:5a80a9090246a7f21a5610",
+        "android_client_info": {
+          "package_name": "com.example.leqaa_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895873717041-5gr2n9iv2fevbd8eje0dvu90dmvdedo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD34qHXm9KuDUegybDfbjSpKM-0vXGdBW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895873717041-5gr2n9iv2fevbd8eje0dvu90dmvdedo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,7 +4,8 @@ import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/home/views/chat/view/selected_message/view/selected_message_screen.dart';
+import 'package:leqaa_app/features/home/views/chat/view/chat_body_screen.dart';
+import 'package:leqaa_app/features/home/views/chat/view/selected_message/view/widgets/not_used/selected_message_screen.dart';
 import 'package:leqaa_app/features/home/views/chat/widgets/online_widget.dart';
 
 class ChatColumContainerWidget extends StatelessWidget {
@@ -16,7 +17,8 @@ class ChatColumContainerWidget extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: InkWell(
         onTap: (){
-          AppRoutes.routeTo(context, const SelectedMessageScreen());
+          //AppRoutes.routeTo(context, const SelectedMessageScreen());
+          AppRoutes.routeTo(context, ChatBodyScreen());
         },
         child: Column(
           children: [
