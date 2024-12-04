@@ -33,7 +33,6 @@ class _ChatBottomSheetWidgetState extends State<ChatBottomSheetWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: 22.aEdge,
       color: Colors.white,
       height: 99,
       width: double.infinity,

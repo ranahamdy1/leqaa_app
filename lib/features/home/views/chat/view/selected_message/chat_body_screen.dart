@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 
 class ChatBodyScreen extends StatelessWidget {
-  ChatBodyScreen({Key? key}) : super(key: key);
+  ChatBodyScreen({super.key});
 
   final TextEditingController _message = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -55,8 +55,6 @@ class ChatBodyScreen extends StatelessWidget {
   }
 
 
-
-
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
@@ -81,98 +79,98 @@ class ChatBodyScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return ChangeNotifierProvider<RecordingProvider>(
-      create: (_) => RecordingProvider(),
-      builder: (context, child) => Consumer<RecordingProvider>(
-        builder: (context, provider, child) {
-          return Scaffold(
-            body: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
-                children: [
-                  33.hSize,
-                  Row(
-                    children: [
-                      12.wSize,
-                      Image.asset("next".getPngAsset),
-                      2.wSize,
-                      Image.asset("chat_container".getPngAsset),
-                      8.wSize,
-                      const TextWidget.bigText("أمال عبدالرحمن")
-                    ],
-                  ),
-                  const Divider(color: AppColors.babyGreyColor),
-                  Expanded(
-                    child: StreamBuilder<QuerySnapshot>(
-                      stream: _firestore.collection('global_chats').orderBy("time").snapshots(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
-                          return const Center(child: CircularProgressIndicator());
-                        } else if (snapshot.hasError) {
-                          return Center(child: Text("Error: ${snapshot.error}"));
-                        } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                          return const Center(child: Text("No messages yet."));
-                        }
-
-                        for (var doc in snapshot.data!.docs) {
-                          final map = doc.data() as Map<String, dynamic>;
-                          print("Message: ${map['message']}, Audio URL: ${map['audioUrl']}");
-                        }
-
-                        return ListView.builder(
-                          controller: scrollController,
-                          itemCount: snapshot.data!.docs.length,
-                          itemBuilder: (context, index) {
-                            final map = snapshot.data!.docs[index].data() as Map<String, dynamic>;
-                            return messages(size, map);
-                          },
-                        );
-                      },
+        create: (_) => RecordingProvider(),
+        builder: (context, child) => Consumer<RecordingProvider>(
+          builder: (context, provider, child) {
+            return Scaffold(
+              body: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  children: [
+                    33.hSize,
+                    Row(
+                      children: [
+                        12.wSize,
+                        Image.asset("next".getPngAsset),
+                        2.wSize,
+                        Image.asset("chat_container".getPngAsset),
+                        8.wSize,
+                        const TextWidget.bigText("أمال عبدالرحمن")
+                      ],
                     ),
-                  ),
-                  ChatBottomSheetWidget(
-                    controller: _message,
-                    sendOnTap: () => onSendMessage(_message.text),
-                    sendAudioOnTap: () {
-                      onSendAudio(provider);
-                      print(provider.audioUrl);
-                      if (provider.audioUrl != null && provider.audioUrl!.isNotEmpty) {
-                        AppRoutes.pop(context);
-                      } else {
-                        print("Audio URL is empty or null.");
-                      }
-                    },
+                    const Divider(color: AppColors.babyGreyColor),
+                    Expanded(
+                      child: StreamBuilder<QuerySnapshot>(
+                        stream: _firestore.collection('global_chats').orderBy("time").snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.waiting) {
+                            return const Center(child: CircularProgressIndicator());
+                          } else if (snapshot.hasError) {
+                            return Center(child: Text("Error: ${snapshot.error}"));
+                          } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                            return const Center(child: Text("No messages yet."));
+                          }
 
-                  ),
-                ],
-              ),
-            ),
-            floatingActionButton: ValueListenableBuilder<bool>(
-              valueListenable: showScrollDownButton,
-              builder: (context, isVisible, child) {
-                return isVisible ? FloatingActionButton(
-                  onPressed: () {
-                    scrollController.jumpTo(scrollController.position.maxScrollExtent);
-                    showScrollDownButton.value = false;
-                  },
-                  backgroundColor: AppColors.pageControllerColor,
-                  shape: const CircleBorder(),
-                  elevation: 5.0,
-                  child: const Center(
-                    child: SizedBox(
-                      height: 25,
-                      width: 25,
-                      child: Icon(
-                        Icons.arrow_downward,
-                        color: AppColors.whiteColor,
+                          for (var doc in snapshot.data!.docs) {
+                            final map = doc.data() as Map<String, dynamic>;
+                            print("Message: ${map['message']}, Audio URL: ${map['audioUrl']}");
+                          }
+
+                          return ListView.builder(
+                            controller: scrollController,
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              final map = snapshot.data!.docs[index].data() as Map<String, dynamic>;
+                              return messages(size, map);
+                            },
+                          );
+                        },
                       ),
                     ),
-                  ),
-                ) : const SizedBox.shrink();
-              },
-            ),
-          );
-        },
-      )
+                    ChatBottomSheetWidget(
+                      controller: _message,
+                      sendOnTap: () => onSendMessage(_message.text),
+                      sendAudioOnTap: () {
+                        onSendAudio(provider);
+                        print(provider.audioUrl);
+                        if (provider.audioUrl != null && provider.audioUrl!.isNotEmpty) {
+                          AppRoutes.pop(context);
+                        } else {
+                          print("Audio URL is empty or null.");
+                        }
+                      },
+
+                    ),
+                  ],
+                ),
+              ),
+              floatingActionButton: ValueListenableBuilder<bool>(
+                valueListenable: showScrollDownButton,
+                builder: (context, isVisible, child) {
+                  return isVisible ? FloatingActionButton(
+                    onPressed: () {
+                      scrollController.jumpTo(scrollController.position.maxScrollExtent);
+                      showScrollDownButton.value = false;
+                    },
+                    backgroundColor: AppColors.pageControllerColor,
+                    shape: const CircleBorder(),
+                    elevation: 5.0,
+                    child: const Center(
+                      child: SizedBox(
+                        height: 25,
+                        width: 25,
+                        child: Icon(
+                          Icons.arrow_downward,
+                          color: AppColors.whiteColor,
+                        ),
+                      ),
+                    ),
+                  ) : const SizedBox.shrink();
+                },
+              ),
+            );
+          },
+        )
     );
   }
 
@@ -227,7 +225,6 @@ class ChatBodyScreen extends StatelessWidget {
                 const Text("Audio Message"),
               ],
             ),
-
         ],
       ),
     );
