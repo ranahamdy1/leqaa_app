@@ -79,7 +79,7 @@ class TextWidget extends StatelessWidget {
         fontSize: fontSize,
         fontWeight: fontWeight,
         shadows: shadows,
-        fontFamily: fontFamily
+        fontFamily: fontFamily,
       ),
     );
   }

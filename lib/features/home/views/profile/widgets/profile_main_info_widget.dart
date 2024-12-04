@@ -12,7 +12,7 @@ class ProfileMainInfoWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: 364,
-        height: 188,
+        height: 222,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(8)),
