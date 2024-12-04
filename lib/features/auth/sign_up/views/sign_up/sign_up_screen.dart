@@ -24,6 +24,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final confirmPasswordController = TextEditingController();
   bool isChecked = false;
   bool _obscureText = true;
+  bool _obscureText2 = true;
 
 
   @override
@@ -109,15 +110,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   labelText: 'تأكيد كلمة المرور',
                   kbType: TextInputType.visiblePassword,
                   controller: confirmPasswordController,
+                  isObscureText: _obscureText2,
                   onChanged: (value) {  },
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _obscureText ? Icons.visibility_off : Icons.remove_red_eye_outlined,
+                      _obscureText2 ? Icons.visibility_off : Icons.remove_red_eye_outlined,
                       color: AppColors.mainColor,
                     ),
                     onPressed: () {
                       setState(() {
-                        _obscureText = !_obscureText;
+                        _obscureText2 = !_obscureText2;
                       });
                     },
                   ),
@@ -134,7 +136,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         });
                       },
                     ):
-                    Image.asset("check".getPngAsset),
+                    Row(
+                      children: [
+                        22.wSize,
+                        Image.asset("check".getPngAsset),
+                        22.wSize
+                      ],
+                    ),
                     const TextWidget("لقد قرأت ",fontFamily: "Somar",),
                     const TextWidget("الشروط والاحكام",color: AppColors.secondColor,fontFamily: "Somar",),
                     const TextWidget(" ووافقت عليها",fontFamily: "Somar",),
