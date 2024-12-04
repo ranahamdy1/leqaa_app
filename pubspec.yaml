@@ -37,9 +37,8 @@ dependencies:
   cloud_firestore: ^5.5.0
   firebase_auth: ^5.3.3
   firebase_storage: ^12.3.6
-  firebase_analytics: ^11.3.5
-  dash_chat_2: ^0.0.21
   delightful_toast: ^1.1.0
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
