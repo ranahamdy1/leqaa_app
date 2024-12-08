@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
@@ -14,17 +15,19 @@ import 'package:leqaa_app/features/home/views/main_profile/widgets/sign_out_widg
 import 'package:leqaa_app/features/payment/moyasar/moyasara_screen.dart';
 
 class MainProfileScreen extends StatelessWidget {
-  const MainProfileScreen({super.key});
+  MainProfileScreen({super.key});
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const TextWidget.bigText("الملف الشخصي"),
+              TextWidget.bigText("profile".tr()),
               12.hSize,
               /*pickedImages.isNotEmpty
                   ? ClipRRect(
@@ -88,8 +91,45 @@ class MainProfileScreen extends StatelessWidget {
                     AppRoutes.routeTo(context, const AboutAppScreen());
                   },
                   child: const MainProfileWidget(text: 'عن التطبيق',)),
-              const MainProfileWidget(text: 'تعديل الهوايات',),
-              const MainProfileWidget(text: 'تعديل الهوايات',),
+              InkWell(
+                  onTap: (){
+                    if(context.locale == const Locale('ar')){
+                      context.setLocale(const Locale("en"));
+                    }else{
+                      context.setLocale(const Locale("ar"));
+                    }
+                  },
+                  child:  Padding(
+                    padding: const EdgeInsets.only(top: 8.0,left: 8.0,right: 8.0),
+                    child: Container(
+                      width: 361,
+                      height: 56,
+                      padding:  const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.all(Radius.circular(8)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset("about".getPngAsset),
+                          9.wSize,
+                          const Text("اللغة"),
+                          const Spacer(),
+                         context.locale == const Locale('ar')?const TextWidget.bigText("عربي",color: AppColors.secondColor,):const TextWidget("English",color: AppColors.secondColor,),
+                          2.wSize
+                        ],
+                      ),
+                    ),
+                  ),),
+                  //const MainProfileWidget(text: ' اللغة',)),
               const MainProfileWidget(text: 'تعديل الهوايات',),
               const MainProfileWidget(text: 'تعديل الهوايات',),
               Padding(

@@ -102,7 +102,7 @@ class _NavigationExampleState extends State<MainNavigationScreen> {
           const HomeScreen(),
           const ChatScreen(),
           const FavouriteScreen(),
-          const MainProfileScreen(),
+          MainProfileScreen(),
           //const ProfileScreen(),
         ][currentPageIndex],
       ),

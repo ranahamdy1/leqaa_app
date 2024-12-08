@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
@@ -34,8 +35,8 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         const TextWidget.bigText("مرحبا محمد"),
                         SizedBox(height: 9.h),
-                        const TextWidget.mediumText(
-                          "أهلا بك فى لقاء !",
+                        TextWidget.mediumText(
+                          "startScreenBigText".tr(),
                           color: AppColors.pageControllerColor,
                         ),
                       ],
