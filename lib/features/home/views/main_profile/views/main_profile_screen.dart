@@ -7,9 +7,9 @@ import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/discount_widget.dart';
 import 'package:leqaa_app/features/home/views/main_profile/views/edit_hoppies_screen.dart';
-import 'package:leqaa_app/features/home/views/home/view/filter_screen.dart';
 import 'package:leqaa_app/features/home/views/main_profile/views/update_image_screen.dart';
 import 'package:leqaa_app/features/home/views/main_profile/widgets/main_profile_widget.dart';
+import 'package:leqaa_app/features/home/views/main_profile/widgets/sign_out_widget.dart';
 import 'package:leqaa_app/features/payment/moyasar/moyasara_screen.dart';
 
 class MainProfileScreen extends StatelessWidget {
@@ -95,7 +95,12 @@ class MainProfileScreen extends StatelessWidget {
                     borderColor: AppColors.secondColor,
                     backgroundColor: AppColors.whiteColor,
                     onPressed: (){
-                      //AppRoutes.routeTo(context, const MainNavigationScreen());
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const SignOutWidget();
+                        },
+                      );
                     },
                 ),
               ),

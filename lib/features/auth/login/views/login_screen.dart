@@ -11,7 +11,7 @@ import 'package:leqaa_app/features/auth/sign_up/views/sign_up/sign_up_screen.dar
 import 'package:leqaa_app/features/home/views/main_navigation/main_navigation_screen.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();

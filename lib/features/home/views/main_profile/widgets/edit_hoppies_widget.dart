@@ -15,7 +15,7 @@ class EditHoppiesScreenWidget extends StatelessWidget {
       padding: const EdgeInsets.all(3.0),
       child: Container(
         height: 44,
-        width: 112,
+        width: 122,
         decoration: BoxDecoration(
             color: selected ? AppColors.whiteColor : AppColors.babyPinkColor,
             borderRadius: BorderRadius.circular(4),
