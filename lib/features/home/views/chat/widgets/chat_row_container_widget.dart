@@ -11,7 +11,7 @@ class ChatRowContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(6.0.w),
+      padding: EdgeInsets.all(3.0.w),
       child: Row(
         children: [
           Column(

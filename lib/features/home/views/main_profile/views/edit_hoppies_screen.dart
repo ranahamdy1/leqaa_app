@@ -26,7 +26,7 @@ class _EditHoppiesScreenState extends State<EditHoppiesScreen> {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: 12.aEdge,
+          padding: 15.aEdge,
           child: Column(
             children: [
               33.hSize,
