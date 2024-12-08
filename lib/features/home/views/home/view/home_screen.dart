@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
+import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
+import 'package:leqaa_app/features/home/views/home/view/notification_screen.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/discount_widget.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/home_container_widget.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/search_widget.dart';
@@ -38,7 +40,11 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Image.asset("notification".getPngAsset),
+                    InkWell(
+                        onTap: (){
+                          AppRoutes.routeTo(context, const NotificationScreen());
+                        },
+                        child: Image.asset("notification".getPngAsset)),
                   ],
                 ),
                 SizedBox(height: 12.h),
