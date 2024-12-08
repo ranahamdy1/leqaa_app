@@ -11,44 +11,49 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(left: 18.0,right: 18.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              33.hSize,
-              Row(
-                children: [
-                  const Spacer(),
-                  const TextWidget("الدردشة"),
-                  const Spacer(),
-                  Image.asset("ring".getPngAsset)
-                ],
-              ),
-              18.hSize,
-              const SearchWidget(),
-              18.hSize,
-              SizedBox(
-                height: 100,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return const ChatRowContainerWidget();
-                  },
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                33.hSize,
+                Row(
+                  children: [
+                    const Spacer(),
+                    const TextWidget("الدردشة"),
+                    const Spacer(),
+                    Image.asset("ring".getPngAsset),
+                  ],
                 ),
-              ),
-              SizedBox(
-                height: 555,
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return const ChatColumContainerWidget();
-                  },
+                18.hSize,
+                const SearchWidget(),
+                18.hSize,
+                SizedBox(
+                  height: screenHeight * 0.15,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const ChatRowContainerWidget();
+                    },
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: screenHeight * 0.7,
+                  child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const ChatColumContainerWidget();
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

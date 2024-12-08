@@ -7,7 +7,7 @@ import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/discount_widget.dart';
 import 'package:leqaa_app/features/home/views/main_profile/views/edit_hoppies_screen.dart';
-import 'package:leqaa_app/features/home/views/main_profile/views/filter_screen.dart';
+import 'package:leqaa_app/features/home/views/home/view/filter_screen.dart';
 import 'package:leqaa_app/features/home/views/main_profile/views/update_image_screen.dart';
 import 'package:leqaa_app/features/home/views/main_profile/widgets/main_profile_widget.dart';
 import 'package:leqaa_app/features/payment/moyasar/moyasara_screen.dart';
@@ -77,11 +77,6 @@ class MainProfileScreen extends StatelessWidget {
                   AppRoutes.routeTo(context, const EditHoppiesScreen());
                 },
                   child: const MainProfileWidget(text: 'تعديل الهوايات',)),
-              InkWell(
-                  onTap: (){
-                    AppRoutes.routeTo(context, const FilterScreen());
-                  },
-                  child: const MainProfileWidget(text: 'فلتر',)),
               InkWell(
                   onTap: (){
                     AppRoutes.routeTo(context, MoyasaraScreen());

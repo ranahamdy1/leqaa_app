@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leqaa_app/features/welcome/splash/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:leqaa_app/core/helper/cache_helper.dart';
@@ -33,19 +34,23 @@ void main() async {
   );
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: const SplashScreen(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      builder: (context, child) {
+        return  MaterialApp(
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+          home: const SplashScreen(),
+        );
+      },
     );
   }
 }

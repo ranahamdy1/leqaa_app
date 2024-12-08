@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
@@ -12,32 +13,25 @@ class ChatColumContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Padding(
-      padding: const EdgeInsets.all(2.0),
+      padding: EdgeInsets.only(left: 2.0.w,right: 2.0,bottom: 2.0),
       child: InkWell(
-        onTap: (){
-          //AppRoutes.routeTo(context, const SelectedMessageScreen());
+        onTap: () {
           AppRoutes.routeTo(context, ChatBodyScreen());
         },
         child: Column(
           children: [
             Container(
-              height: 55,
-              width: 360,
+              height: 55.h,
+              width: screenWidth * 0.9,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(5)),
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.grey.withOpacity(0.5),
-                //     spreadRadius: 5,
-                //     blurRadius: 7,
-                //     offset: const Offset(0, 3),
-                //   ),
-                // ],
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0.w),
                 child: Row(
                   children: [
                     Stack(

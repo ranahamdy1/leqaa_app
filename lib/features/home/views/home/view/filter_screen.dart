@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
+import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/custom_text_form_feild.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/home/views/main_profile/widgets/filter_widget.dart';
+import 'package:leqaa_app/features/home/views/home/widgets/filter_widget.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -30,42 +31,70 @@ class _FilterScreenState extends State<FilterScreen> {
     });
   }
 
+  final TextEditingController _nationalityController = TextEditingController();
+  final List<String> _nationalities = [
+    "الكويت",
+    "مصر",
+    "السعودية",
+    "الإمارات",
+    "الأردن"
+  ];
+  String? _selectedNationality;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
                   22.hSize,
                   Row(
                     children: [
-                      Image.asset("next".getPngAsset),
+                      InkWell(
+                          onTap: (){
+                            AppRoutes.pop(context);
+                          },
+                          child: Image.asset("next".getPngAsset)),
                       const Spacer(),
-                      const TextWidget.bigText("الدردشة"),
+                      const TextWidget.bigText("فلتر"),
                       const Spacer(),
                     ],
                   ),
                   18.hSize,
-                  CustomTextFormField(
-                    hintText: "الجنسية",
-                    labelText: "الجنسية",
-                    controller: nationalityController,
-                    kbType: TextInputType.text,
-                    onChanged: (value) {},
-                    suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
+                CustomTextFormField(
+                  hintText: "الجنسية",
+                  labelText: "الجنسية",
+                  controller: _nationalityController,
+                  kbType: TextInputType.text,
+                  onChanged: (value) {},
+                  suffixIcon: DropdownButton<String>(
+                    icon: const Icon(Icons.arrow_drop_down, size: 33),
+                    underline: const SizedBox(), // Removes default dropdown underline
+                    items: _nationalities.map((nationality) => DropdownMenuItem<String>(
+                      value: nationality,
+                      child: Text(nationality),
+                    )).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        //_selectedNationality = value;
+                        _nationalityController.text = value!;
+                      });
+                    },
+                    value: _selectedNationality,
                   ),
+                ),
                   CustomTextFormField(
                     hintText: "منطقة الاقامة",
                     labelText: "منطقة الاقامة",
                     controller: residenceController,
                     kbType: TextInputType.text,
                     onChanged: (value) {},
-                    suffixIcon: const Icon(Icons.arrow_drop_down, size: 44),
+                    suffixIcon: const Icon(Icons.arrow_drop_down, size: 33),
                   ),
                   18.hSize,
                   const Row(
@@ -160,8 +189,8 @@ class _FilterScreenState extends State<FilterScreen> {
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

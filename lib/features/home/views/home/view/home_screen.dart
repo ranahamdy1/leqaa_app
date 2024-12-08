@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:leqaa_app/core/extensions/assets_widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 18.0,left: 18.0,right: 18.0),
+        padding: EdgeInsets.symmetric(horizontal: 18.w),
         child: GestureDetector(
           behavior: HitTestBehavior.translucent,
           onTap: () {
@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                22.hSize,
+                SizedBox(height: 22.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -31,18 +31,21 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const TextWidget.bigText("مرحبا محمد"),
-                        9.hSize,
-                        const TextWidget.mediumText("أهلا بك فى لقاء !", color: AppColors.pageControllerColor),
+                        SizedBox(height: 9.h),
+                        const TextWidget.mediumText(
+                          "أهلا بك فى لقاء !",
+                          color: AppColors.pageControllerColor,
+                        ),
                       ],
                     ),
                     Image.asset("notification".getPngAsset),
                   ],
                 ),
-                12.hSize,
+                SizedBox(height: 12.h),
                 const SearchWidget(),
-                12.hSize,
+                SizedBox(height: 12.h),
                 const DiscountWidget(),
-                12.hSize,
+                SizedBox(height: 12.h),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -50,9 +53,9 @@ class HomeScreen extends StatelessWidget {
                     TextWidget("عرض المزيد", color: AppColors.pageControllerColor),
                   ],
                 ),
-                12.hSize,
+                SizedBox(height: 12.h),
                 SizedBox(
-                  height: 444,
+                  height: 444.h,
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -62,7 +65,6 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                12.hSize,
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -70,9 +72,9 @@ class HomeScreen extends StatelessWidget {
                     TextWidget("عرض المزيد", color: AppColors.pageControllerColor),
                   ],
                 ),
-                12.hSize,
+                SizedBox(height: 12.h),
                 SizedBox(
-                  height: 300,
+                  height: 300.h,
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -82,7 +84,6 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                12.hSize,
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -90,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                     TextWidget("عرض المزيد", color: AppColors.pageControllerColor),
                   ],
                 ),
-                12.hSize,
+                SizedBox(height: 12.h),
                 const HomeContainerWidget(),
               ],
             ),
