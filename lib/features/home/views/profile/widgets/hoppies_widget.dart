@@ -1,8 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
-import 'package:leqaa_app/core/utils/app_routes.dart';
-import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/auth/sign_up/views/widgets/eight_screen_widget.dart';
 
@@ -41,7 +39,7 @@ class HoppiesWidget extends StatelessWidget {
               ),
               DottedBorder(
                 strokeWidth: 1,
-                dashPattern: [6, 5],
+                dashPattern: const [6, 5],
                 color: AppColors.secondColor,
                 customPath: (size) {
                   return Path()..moveTo(0, size.height / 2)..lineTo(size.width, size.height / 2);

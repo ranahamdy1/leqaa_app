@@ -65,7 +65,7 @@ class ProfileWidget extends StatelessWidget {
                           ),
                         ),
                         const Text(
-                          "${90 ?? 0}%",
+                          "${90}%",
                           style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.bold,

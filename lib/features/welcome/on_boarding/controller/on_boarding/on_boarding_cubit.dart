@@ -25,8 +25,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   ];
   int currentPage = 0;
   PageController pageController = PageController(initialPage: 0);
-  OnBoardingCubit() : super(OnBoardingInitial()) {
-  }
+  OnBoardingCubit() : super(OnBoardingInitial());
   changePage(int page) {
     currentPage = page;
     emit(NextState());

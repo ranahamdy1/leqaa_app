@@ -73,7 +73,7 @@ class StartScreen extends StatelessWidget {
                     borderColor: AppColors.secondColor,
                     width: 155,
                     onPressed: () {
-                      AppRoutes.routeTo(context, LoginScreen());
+                      AppRoutes.routeTo(context, const LoginScreen());
                     },
                   ),
                 ],

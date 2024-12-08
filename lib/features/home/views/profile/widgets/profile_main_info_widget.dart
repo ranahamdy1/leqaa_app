@@ -38,7 +38,7 @@ class ProfileMainInfoWidget extends StatelessWidget {
               ),
               DottedBorder(
                 strokeWidth: 1,
-                dashPattern: [6, 5],
+                dashPattern: const [6, 5],
                 color: AppColors.secondColor,
                 customPath: (size) {
                   return Path()..moveTo(0, size.height / 2)..lineTo(size.width, size.height / 2);
