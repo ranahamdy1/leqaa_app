@@ -16,9 +16,9 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Column(
               children: [
                 33.hSize,
@@ -43,14 +43,13 @@ class ChatScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                SizedBox(
-                  height: screenHeight * 0.7,
-                  child: ListView.builder(
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const ChatColumContainerWidget();
-                    },
-                  ),
+                ListView.builder(
+                  shrinkWrap: true, // يجعل الـ ListView تأخذ فقط المساحة المطلوبة
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const ChatColumContainerWidget();
+                  },
                 ),
               ],
             ),

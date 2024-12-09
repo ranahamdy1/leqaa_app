@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 
@@ -12,8 +13,8 @@ class FilterWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(7.0),
       child: Container(
-        height: 44,
-        width: 99,
+        height: 44.h,
+        width: 99.w,
         decoration: BoxDecoration(
             color: selected ? AppColors.secondColor : AppColors.pageControllerColorWithOpacity,
             borderRadius: BorderRadius.circular(4),

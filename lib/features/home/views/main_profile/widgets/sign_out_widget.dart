@@ -39,18 +39,17 @@ class SignOutWidget extends StatelessWidget {
           color: AppColors.whiteColor,
           backgroundColor: AppColors.pageControllerColor,
           borderColor: AppColors.pageControllerColor,
-          width: 122,
+          width: 111,
           onPressed: () {
             AppRoutes.pop(context);
           },
         ),
-        9.wSize,
         CustomButtonWidget(
           "إلغاء",
           color: AppColors.whiteColor,
           backgroundColor: AppColors.secondColor,
           borderColor: AppColors.secondColor,
-          width: 122,
+          width: 111,
           onPressed: () {
             AppRoutes.pop(context);
           },

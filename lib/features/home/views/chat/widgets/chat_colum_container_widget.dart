@@ -25,42 +25,39 @@ class ChatColumContainerWidget extends StatelessWidget {
           children: [
             Container(
               height: 55.h,
-              width: screenWidth * 0.9,
+              width: screenWidth * 1.9,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
-              child: Padding(
-                padding: EdgeInsets.all(8.0.w),
-                child: Row(
-                  children: [
-                    Stack(
-                      children: [
-                        Image.asset("chat_container".getPngAsset),
-                        const Positioned(
-                          bottom: 0.0,
-                          right: 0.0,
-                          child: OnlineWidget(),
-                        ),
-                      ],
-                    ),
-                    9.wSize,
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            const TextWidget.mediumText("أمال عبدالرحمن"),
-                            155.wSize,
-                            const TextWidget("3:00 PM", color: Colors.red)
-                          ],
-                        ),
-                        const TextWidget.smallText(" مرحبا كيف حالك"),
-                      ],
-                    ),
-                  ],
-                ),
+              child: Row(
+                children: [
+                  Stack(
+                    children: [
+                      Image.asset("chat_container".getPngAsset),
+                      const Positioned(
+                        bottom: 0.0,
+                        right: 0.0,
+                        child: OnlineWidget(),
+                      ),
+                    ],
+                  ),
+                  9.wSize,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const TextWidget.mediumText("أمال عبدالرحمن"),
+                          155.wSize,
+                          const TextWidget("3:00 PM", color: Colors.red)
+                        ],
+                      ),
+                      const TextWidget.smallText(" مرحبا كيف حالك"),
+                    ],
+                  ),
+                ],
               ),
             ),
             const Divider(color: AppColors.babyGreyColor),

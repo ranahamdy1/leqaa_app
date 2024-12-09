@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:leqaa_app/core/extensions/assets_widgets.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
@@ -7,6 +6,7 @@ import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/custom_text_form_feild.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/filter_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -46,62 +46,62 @@ class _FilterScreenState extends State<FilterScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.w), // Responsive padding
               child: Column(
                 children: [
-                  22.hSize,
+                  SizedBox(height: 22.h),
                   Row(
                     children: [
                       InkWell(
-                          onTap: (){
-                            AppRoutes.pop(context);
-                          },
-                          child: Image.asset("next".getPngAsset)),
+                        onTap: () {
+                          AppRoutes.pop(context);
+                        },
+                        child: Image.asset("next".getPngAsset),
+                      ),
                       const Spacer(),
                       const TextWidget.bigText("فلتر"),
                       const Spacer(),
                     ],
                   ),
-                  18.hSize,
-                CustomTextFormField(
-                  hintText: "الجنسية",
-                  labelText: "الجنسية",
-                  controller: _nationalityController,
-                  kbType: TextInputType.text,
-                  onChanged: (value) {},
-                  suffixIcon: DropdownButton<String>(
-                    icon: const Icon(Icons.arrow_drop_down, size: 33),
-                    underline: const SizedBox(), // Removes default dropdown underline
-                    items: _nationalities.map((nationality) => DropdownMenuItem<String>(
-                      value: nationality,
-                      child: Text(nationality),
-                    )).toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        //_selectedNationality = value;
-                        _nationalityController.text = value!;
-                      });
-                    },
-                    value: _selectedNationality,
+                  SizedBox(height: 18.h),
+                  CustomTextFormField(
+                    hintText: "الجنسية",
+                    labelText: "الجنسية",
+                    controller: _nationalityController,
+                    kbType: TextInputType.text,
+                    onChanged: (value) {},
+                    suffixIcon: DropdownButton<String>(
+                      icon: Icon(Icons.arrow_drop_down, size: 33.sp),
+                      underline: const SizedBox(),
+                      items: _nationalities
+                          .map((nationality) => DropdownMenuItem<String>(
+                        value: nationality,
+                        child: Text(nationality),
+                      ))
+                          .toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          _nationalityController.text = value!;
+                        });
+                      },
+                      value: _selectedNationality,
+                    ),
                   ),
-                ),
+                  SizedBox(height: 12.h),
                   CustomTextFormField(
                     hintText: "منطقة الاقامة",
                     labelText: "منطقة الاقامة",
                     controller: residenceController,
                     kbType: TextInputType.text,
                     onChanged: (value) {},
-                    suffixIcon: const Icon(Icons.arrow_drop_down, size: 33),
+                    suffixIcon: Icon(Icons.arrow_drop_down, size: 33.sp),
                   ),
-                  18.hSize,
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      TextWidget.bigText('العمر'),
-                    ],
+                  SizedBox(height: 18.h),
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: TextWidget.bigText('العمر'),
                   ),
                   RangeSlider(
                     values: _currentRangeValues,
@@ -120,46 +120,40 @@ class _FilterScreenState extends State<FilterScreen> {
                     },
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    padding: EdgeInsets.symmetric(horizontal: 18.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: List.generate(
                         10,
                             (index) => Text(
                           '${105 - index * 10}',
-                          style: const TextStyle(color: AppColors.pageControllerColor),
+                          style: TextStyle(
+                            color: AppColors.pageControllerColor,
+                            fontSize: 12.sp,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  22.hSize,
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      TextWidget.mediumText('الالتزام الديني'),
-                    ],
+                  SizedBox(height: 12.h),
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: TextWidget.mediumText('الالتزام الديني'),
                   ),
-                  12.hSize,
                   _buildHobbiesRow(_selectedHobbies1, 'التزام'),
-                  22.hSize,
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      TextWidget.mediumText('الوضع المادي'),
-                    ],
+                  SizedBox(height: 12.h),
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: TextWidget.mediumText('الوضع المادي'),
                   ),
-                  12.hSize,
                   _buildHobbiesRow(_selectedHobbies2, 'الوضع'),
-                  22.hSize,
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      TextWidget.mediumText('المؤهل'),
-                    ],
+                  SizedBox(height: 12.h),
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: TextWidget.mediumText('المؤهل'),
                   ),
-                  12.hSize,
                   _buildHobbiesRow(_selectedHobbies3, 'المؤهل'),
-                  122.hSize,
+                  SizedBox(height: 99.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -168,21 +162,17 @@ class _FilterScreenState extends State<FilterScreen> {
                         color: AppColors.whiteColor,
                         backgroundColor: AppColors.pageControllerColor,
                         borderColor: AppColors.pageControllerColor,
-                        width: 155,
-                        onPressed: () {
-                          //AppRoutes.routeTo(context, const SignUpScreen());
-                        },
+                        width: 155.w,
+                        onPressed: () {},
                       ),
-                      12.wSize,
+                      SizedBox(width: 12.w),
                       CustomButtonWidget(
                         "مسح الفلتر",
                         color: AppColors.whiteColor,
                         backgroundColor: AppColors.secondColor,
                         borderColor: AppColors.secondColor,
-                        width: 155,
-                        onPressed: () {
-                          //AppRoutes.routeTo(context, LoginScreen());
-                        },
+                        width: 155.w,
+                        onPressed: () {},
                       ),
                     ],
                   ),
@@ -197,7 +187,7 @@ class _FilterScreenState extends State<FilterScreen> {
 
   Widget _buildHobbiesRow(List<bool> hobbiesList, String prefix) {
     return SizedBox(
-      height: 60,
+      height: 60.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: hobbiesList.length,
