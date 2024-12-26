@@ -7,7 +7,7 @@ import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/custom_text_form_feild.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/auth/login/views/login_screen.dart';
-import 'package:leqaa_app/features/auth/sign_up/views/app_rules/app_rules_screen.dart';
+import 'package:leqaa_app/features/auth/sign_up/views/app_rules/app_rules/view/app_rules_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

@@ -50,7 +50,10 @@ class StartScreen extends StatelessWidget {
               44.hSize,
               TextWidget.bigText("startScreenBigText".tr()),
               44.hSize,
-              TextWidget.smallText("startScreenSmallTextOne".tr()),
+              TextWidget.smallText(
+                  "startScreenSmallTextOne".tr(),
+                   textAlign: TextAlign.center,
+              ),
               122.hSize,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -81,9 +81,15 @@ class OnBoardingScreen extends StatelessWidget {
                                   padding: const EdgeInsets.all(4.0),
                                   child: Column(
                                     children: [
-                                      TextWidget.bigText("${onBoardingDio.onBoardingDioModel?.data?[i].title}"),
+                                      TextWidget.bigText(
+                                          "${onBoardingDio.onBoardingDioModel?.data?[i].title}",
+                                        textAlign: TextAlign.center,
+                                      ),
                                       33.hSize,
-                                      TextWidget.smallText("${onBoardingDio.onBoardingDioModel?.data?[i].desc}"),
+                                      TextWidget.smallText(
+                                          "${onBoardingDio.onBoardingDioModel?.data?[i].desc}",
+                                        textAlign: TextAlign.center,
+                                      ),
                                     ],
                                   ),
                                 ),
