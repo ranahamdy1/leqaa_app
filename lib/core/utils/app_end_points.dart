@@ -1,3 +1,3 @@
 class Endpoints{
-  static String login="";
+  static String onBoarding="onboards";
 }

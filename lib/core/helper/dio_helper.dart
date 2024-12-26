@@ -11,7 +11,7 @@ class DioHelper {
   static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: '',
+        baseUrl: 'http://liqaa.site.jadara.work/api/',
         receiveDataWhenStatusError: true,
       ),
     );
@@ -28,12 +28,12 @@ class DioHelper {
   static Future<Response> getData({
     required String url,
     Map<String, dynamic>? query,
-    String lang = 'en',
+    String lang = 'ar',
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'lang': lang,
+      'Accept-Language': lang,
       'Authorization': 'Bearer ${CacheHelper.getData(key: AppStrings.token) ?? ''}',
     };
     return await dio.get(url, queryParameters: query);
@@ -42,12 +42,12 @@ class DioHelper {
   static Future<Response> deleteData({
     required String url,
     Map<String, dynamic>? query,
-    String lang = 'en',
+    String lang = 'ar',
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'lang': lang,
+      'Accept-Language': lang,
       'Authorization': 'Bearer ${CacheHelper.getData(key: AppStrings.token) ?? ''}',
     };
     return dio.delete(url, queryParameters: query);
@@ -57,12 +57,12 @@ class DioHelper {
     required String url,
     Map<String, dynamic>? query,
     required Map<String, dynamic> data,
-    String lang = 'en',
+    String lang = 'ar',
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'lang': lang,
+      'Accept-Language': lang,
       'Authorization': 'Bearer ${CacheHelper.getData(key: AppStrings.token) ?? ''}',
     };
     return dio.post(url, queryParameters: query, data: data);
@@ -72,12 +72,12 @@ class DioHelper {
     required String url,
     Map<String, dynamic>? query,
     required Map<String, dynamic> data,
-    String lang = 'en',
+    String lang = 'ar',
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'lang': lang,
+      'Accept-Language': lang,
       'Authorization': 'Bearer ${CacheHelper.getData(key: AppStrings.token) ?? ''}',
     };
     return dio.put(url, queryParameters: query, data: data);
