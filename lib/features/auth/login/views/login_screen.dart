@@ -122,15 +122,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: double.infinity,
                             color: AppColors.whiteColor,
                             backgroundColor: AppColors.mainColor,
-                            borderColor: AppColors.mainColor,
-                            onPressed: () {
-                              if (formKey.currentState!.validate()) {
-                                BlocProvider.of<LoginCubit>(context).login(
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                );
-                              }                        }
-                        ),
+                            borderColor: AppColors.mainColor, onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            BlocProvider.of<LoginCubit>(context).login(
+                              email: emailController.text,
+                              password: passwordController.text,
+                            );
+                          }
+                        }),
                         12.hSize,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

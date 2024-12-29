@@ -1,6 +1,12 @@
-part of 'forget_password_cubit.dart';
+abstract class ForgetPasswordStates {}
 
-@immutable
-abstract class ForgetPasswordState {}
+class ForgetPasswordInitial extends ForgetPasswordStates {}
 
-class ForgetPasswordInitial extends ForgetPasswordState {}
+class ForgetPasswordLoadingState extends ForgetPasswordStates {}
+
+class ForgetPasswordSuccessState extends ForgetPasswordStates {}
+
+class ForgetPasswordFailedState extends ForgetPasswordStates {
+  final String msg;
+  ForgetPasswordFailedState({required this.msg});
+}
