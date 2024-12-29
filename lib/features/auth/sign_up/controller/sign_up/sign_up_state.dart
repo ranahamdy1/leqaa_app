@@ -1,6 +1,12 @@
-part of 'sign_up_cubit.dart';
+abstract class SignUpStates {}
 
-@immutable
-abstract class SignUpState {}
+class SignUpInitial extends SignUpStates {}
 
-class SignUpInitial extends SignUpState {}
+class SignUpLoadingState extends SignUpStates {}
+
+class SignUpSuccessState extends SignUpStates {}
+
+class SignUpFailedState extends SignUpStates {
+  final String msg;
+  SignUpFailedState({required this.msg});
+}
