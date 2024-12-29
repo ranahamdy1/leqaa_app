@@ -8,8 +8,8 @@ import 'package:leqaa_app/core/utils/app_validation.dart';
 import 'package:leqaa_app/core/widgets/custom_button_widget.dart';
 import 'package:leqaa_app/core/widgets/custom_text_form_feild.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
-import 'package:leqaa_app/features/auth/forget_password/controller/forget_password_cubit.dart';
-import 'package:leqaa_app/features/auth/forget_password/controller/forget_password_state.dart';
+import 'package:leqaa_app/features/auth/forget_password/controller/forget_password/forget_password_cubit.dart';
+import 'package:leqaa_app/features/auth/forget_password/controller/forget_password/forget_password_state.dart';
 import 'package:leqaa_app/features/auth/forget_password/view/verification_code_screen.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
@@ -26,7 +26,7 @@ class ForgetPasswordScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is ForgetPasswordSuccessState) {
             WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-              AppRoutes.routeTo(context, VerificationCodeScreen());
+              AppRoutes.routeTo(context, VerificationCodeScreen(emailController: emailController,));
             });
           } else if (state is ForgetPasswordFailedState) {
             showDialog(

@@ -2,12 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:leqaa_app/core/helper/dio_helper.dart';
 import 'package:leqaa_app/core/utils/app_end_points.dart';
-import 'package:leqaa_app/features/auth/forget_password/controller/forget_password_state.dart';
+import 'package:leqaa_app/features/auth/forget_password/controller/forget_password/forget_password_state.dart';
 import 'package:leqaa_app/features/auth/forget_password/model/forget_password_model.dart';
 
 class ForgetPasswordCubit extends Cubit<ForgetPasswordStates> {
   ForgetPasswordCubit() : super(ForgetPasswordInitial());
-  static ForgetPasswordCubit get(context) => BlocProvider.of(context);
 
   late ForgetPasswordModel forgetPasswordModel;
 
