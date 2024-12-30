@@ -15,9 +15,8 @@ class MostMatchAcountCubit extends Cubit<MostMatchAccountsState> {
   void getMostMatchAccounts() {
     emit(MostMatchAccountsLoadingState());
 
-    DioHelper.getData(
-      url: Endpoints.home,
-    ).then((value) {
+    DioHelper.getData(url: Endpoints.home).then((value) {
+      print("API Response: ${value.data}");
       if (value.data != null) {
         mostMatchAcountModel = MostMatchAcountModel.fromJson(value.data);
         emit(MostMatchAccountsSuccessState(mostMatchAcountModel: mostMatchAcountModel!));
@@ -25,11 +24,12 @@ class MostMatchAcountCubit extends Cubit<MostMatchAccountsState> {
         emit(MostMatchAccountsFailedState(msg: 'No data found.'));
       }
     }).catchError((onError) {
+      print("API Error: $onError");
       final errorMessage = (onError is DioError)
           ? onError.response?.data['message'] ?? onError.message
           : onError.toString();
       emit(MostMatchAccountsFailedState(msg: errorMessage));
-      print("errorMessage $errorMessage");
     });
+
   }
 }
