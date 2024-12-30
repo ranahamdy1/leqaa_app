@@ -6,7 +6,7 @@ class MostMatchAcountModel {
   MostMatchAcountModel({this.data, this.message, this.status});
 
   MostMatchAcountModel.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
     message = json['message'];
     status = json['status'];
   }
@@ -23,19 +23,19 @@ class MostMatchAcountModel {
 }
 
 class Data {
-  Null? bestMatch;
-  Null? match;
+  dynamic bestMatch; // Changed to dynamic to handle different types
+  dynamic match; // Changed to dynamic to handle different types
   List<Suggestions>? suggestions;
 
   Data({this.bestMatch, this.match, this.suggestions});
 
   Data.fromJson(Map<String, dynamic> json) {
-    bestMatch = json['best_match'];
-    match = json['match'];
+    bestMatch = json['best_match']; // No need to set to Null; handle dynamic types
+    match = json['match']; // Handle dynamic types
     if (json['suggestions'] != null) {
       suggestions = <Suggestions>[];
       json['suggestions'].forEach((v) {
-        suggestions!.add(new Suggestions.fromJson(v));
+        suggestions!.add(Suggestions.fromJson(v));
       });
     }
   }
@@ -76,7 +76,7 @@ class Suggestions {
     if (json['values'] != null) {
       values = <Values>[];
       json['values'].forEach((v) {
-        values!.add(new Values.fromJson(v));
+        values!.add(Values.fromJson(v));
       });
     }
     country = json['country'];

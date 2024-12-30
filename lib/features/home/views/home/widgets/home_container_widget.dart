@@ -25,7 +25,7 @@ class HomeContainerWidget extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is MostMatchAccountsLoadingState) {
-            return const CircularProgressIndicator(color: AppColors.mainColor);
+            return const CircularProgressIndicator(color: AppColors.secondColor);
           } else if (state is MostMatchAccountsSuccessState) {
             final mostMatchAcount = context.watch<MostMatchAcountCubit>();
             return SizedBox(
