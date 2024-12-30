@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:leqaa_app/core/extensions/assets_widgets.dart';
+import 'package:leqaa_app/core/helper/cache_helper.dart';
 import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
+import 'package:leqaa_app/core/utils/app_strings.dart';
+import 'package:leqaa_app/features/home/views/main_navigation/main_navigation_screen.dart';
 import 'package:leqaa_app/features/welcome/on_boarding/view/on_boarding_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -29,7 +32,9 @@ class SplashScreen extends StatelessWidget {
                 splashTransition: SplashTransition.fadeTransition,
                 animationDuration: const Duration(milliseconds: 1500),
                 splash: Image.asset("splash_png".getPngAsset),
-                nextScreen: const OnBoardingScreen(),
+                nextScreen: CacheHelper.getData(key: AppStrings.token)!= null
+                    ? const MainNavigationScreen()
+                    : const OnBoardingScreen(),
                 backgroundColor: Colors.transparent,
               ),
             ),

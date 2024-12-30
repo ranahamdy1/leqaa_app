@@ -8,6 +8,7 @@ import 'package:leqaa_app/core/widgets/text_widget.dart';
 import 'package:leqaa_app/features/home/views/home/view/notification_screen.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/discount_widget.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/home_container_widget.dart';
+import 'package:leqaa_app/features/home/views/home/widgets/home_container_widget_two.dart';
 import 'package:leqaa_app/features/home/views/home/widgets/search_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -61,7 +62,8 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 12.h),
-                SizedBox(
+                const HomeContainerWidget(),
+                /*SizedBox(
                   height: 444.h,
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -71,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                       return const HomeContainerWidget();
                     },
                   ),
-                ),
+                ),*/
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -87,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: 2,
                     itemBuilder: (BuildContext context, int index) {
-                      return const HomeContainerWidget();
+                      return const HomeContainerWidgetTwo();
                     },
                   ),
                 ),
@@ -99,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 12.h),
-                const HomeContainerWidget(),
+                const HomeContainerWidgetTwo(),
               ],
             ),
           ),

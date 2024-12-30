@@ -7,4 +7,5 @@ class Endpoints{
   static String verify="verify";
   static String newpassword="newpassword";
   static String aboutapp="aboutapp";
+  static String home="home";
 }
