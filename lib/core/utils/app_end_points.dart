@@ -8,4 +8,6 @@ class Endpoints{
   static String newpassword="newpassword";
   static String aboutapp="aboutapp";
   static String home="home";
+  static String logout="logout";
+  static String deleteAcount="user/delete";
 }
