@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:leqaa_app/core/utils/app_assets.dart';
 import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/utils/app_routes.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
@@ -15,8 +14,7 @@ class HomeContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-      MostMatchAcountCubit()..getMostMatchAccounts(),
+      create: (context) => MostMatchAcountCubit()..getMostMatchAccounts(),
       child: BlocConsumer<MostMatchAcountCubit, MostMatchAccountsState>(
         listener: (context, state) {
           if (state is MostMatchAccountsInitialState) {
@@ -33,7 +31,8 @@ class HomeContainerWidget extends StatelessWidget {
             child: ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: mostMatchAcount.mostMatchAcountModel?.data?.suggestions?.length,
+              itemCount: mostMatchAcount
+                  .mostMatchAcountModel?.data?.suggestions?.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: EdgeInsets.all(8.w),
@@ -57,7 +56,58 @@ class HomeContainerWidget extends StatelessWidget {
                         SizedBox(
                           height: 66.h,
                           width: 66.h,
-                          child: Image.network("${mostMatchAcount.mostMatchAcountModel?.data?.suggestions?[index].image}"),
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.center,
+                                child: ClipOval(
+                                  child: Image.network(
+                                    "${mostMatchAcount.mostMatchAcountModel?.data?.suggestions?[index].image}",
+                                    fit: BoxFit.cover,
+                                    width: 100, // Specify the desired width
+                                    height: 100, // Specify the desired height
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: SizedBox(
+                                  height: 33,
+                                  width: 33,
+                                  child: Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: AppColors.whiteColor,
+                                          borderRadius:
+                                              BorderRadius.circular(40),
+                                        ),
+                                        height: 55,
+                                        width: 55,
+                                        child: CircularProgressIndicator(
+                                          value: (mostMatchAcount.mostMatchAcountModel?.data?.suggestions?[index].match ?? 90) / 100,
+                                          backgroundColor: AppColors.babyPinkColor,
+                                          valueColor: const AlwaysStoppedAnimation<Color>(AppColors.secondColor),
+                                          strokeWidth: 5,
+                                        ),
+                                      ),
+                                       Center(
+                                        child: Text(
+                                          "${mostMatchAcount.mostMatchAcountModel?.data?.suggestions?[index].match}%",
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColors.mainColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         SizedBox(width: 9.w),
                         Expanded(
@@ -65,7 +115,8 @@ class HomeContainerWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              TextWidget.bigText("${mostMatchAcount.mostMatchAcountModel?.data?.suggestions?[index].name}"),
+                              TextWidget.bigText(
+                                  "${mostMatchAcount.mostMatchAcountModel?.data?.suggestions?[index].name}"),
                               Row(
                                 children: [
                                   const Icon(
@@ -87,7 +138,8 @@ class HomeContainerWidget extends StatelessWidget {
                                 " دول الخليج وأوروبا وأمريكا الشمالية.",
                                 fontSize: 9,
                               ),
-                              SizedBox(height: 5.h), // Responsive vertical spacing
+                              SizedBox(
+                                  height: 5.h), // Responsive vertical spacing
                               Row(
                                 children: [
                                   InkWell(
@@ -99,11 +151,13 @@ class HomeContainerWidget extends StatelessWidget {
                                       width: 99.w,
                                       height: 33.h,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(6.r),
+                                        borderRadius:
+                                            BorderRadius.circular(6.r),
                                         color: AppColors.pageControllerColor,
                                       ),
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           const Icon(
                                             Icons.remove_red_eye_outlined,
@@ -129,7 +183,8 @@ class HomeContainerWidget extends StatelessWidget {
                                       color: AppColors.secondColor,
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         const Icon(
                                           Icons.remove_red_eye_outlined,
