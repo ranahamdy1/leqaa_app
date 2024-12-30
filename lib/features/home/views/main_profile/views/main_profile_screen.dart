@@ -131,7 +131,16 @@ class MainProfileScreen extends StatelessWidget {
                   ),),
                   //const MainProfileWidget(text: ' اللغة',)),
               const MainProfileWidget(text: 'تعديل الهوايات',),
-              const MainProfileWidget(text: 'تعديل الهوايات',),
+              InkWell(
+                  onTap: (){
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const SignOutWidget();
+                      },
+                    );
+                  },
+                  child: const MainProfileWidget(text: 'تسجيل الخروج',)),
               Padding(
                 padding: const EdgeInsets.only(top: 8.0,left: 8.0,right: 8.0),
                 child: CustomButtonWidget(
@@ -141,12 +150,7 @@ class MainProfileScreen extends StatelessWidget {
                     borderColor: AppColors.secondColor,
                     backgroundColor: AppColors.whiteColor,
                     onPressed: (){
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return const SignOutWidget();
-                        },
-                      );
+
                     },
                 ),
               ),

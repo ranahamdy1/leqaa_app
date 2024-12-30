@@ -6,4 +6,5 @@ class Endpoints{
   static String forgetPassword="forgetpassword";
   static String verify="verify";
   static String newpassword="newpassword";
+  static String aboutapp="aboutapp";
 }
