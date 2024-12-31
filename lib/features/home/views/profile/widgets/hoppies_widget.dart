@@ -15,7 +15,7 @@ class HoppiesWidget extends StatefulWidget {
 }
 
 class _HoppiesWidgetState extends State<HoppiesWidget> {
-  int? selectedHobbyIndex;
+  List<int> selectedHobbyIndices = [];
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,8 @@ class _HoppiesWidgetState extends State<HoppiesWidget> {
                   }
 
                   return Column(
-                    mainAxisSize: MainAxisSize.min, // Ensure column size adapts to children
+                    mainAxisSize: MainAxisSize
+                        .min, // Ensure column size adapts to children
                     children: [
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -88,9 +89,7 @@ class _HoppiesWidgetState extends State<HoppiesWidget> {
                         dashPattern: const [6, 5],
                         color: AppColors.secondColor,
                         customPath: (size) {
-                          return Path()
-                            ..moveTo(0, size.height / 2)
-                            ..lineTo(size.width, size.height / 2);
+                          return Path()..moveTo(0, size.height / 2)..lineTo(size.width, size.height / 2);
                         },
                         child: const SizedBox(
                           height: 1,
@@ -98,26 +97,44 @@ class _HoppiesWidgetState extends State<HoppiesWidget> {
                         ),
                       ),
                       // Wrap with spacing to avoid crowded UI
-                      Wrap(
-                        spacing: 16.0, // Adjust spacing as per your layout needs
-                        runSpacing: 16.0, // Adjust runSpacing as per your layout needs
-                        children: hobbies.asMap().entries.map((entry) {
-                          int index = entry.key;
-                          var hobby = entry.value;
-
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedHobbyIndex = index;
-                              });
-                            },
-                            child: EightScreenWidget(
-                              image: hobby.image ?? '', // Handle null case
-                              text: hobby.title ?? '',
-                              isSelected: selectedHobbyIndex == index,
-                            ),
-                          );
-                        }).toList(),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width,
+                        ),
+                        child: Column(
+                          children: [
+                            for (var i = 0; i < hobbies.length; i += 3)
+                              Row(
+                                children: hobbies.skip(i).take(3).map((hobby) {
+                                  int currentIndex = i + hobbies.indexOf(hobby);
+                                  return Expanded(
+                                    flex: 1,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            if (selectedHobbyIndices.contains(currentIndex)) {
+                                              // Deselect hobby
+                                              selectedHobbyIndices.remove(currentIndex);
+                                            } else {
+                                              // Select hobby
+                                              selectedHobbyIndices.add(currentIndex);
+                                            }
+                                          });
+                                        },
+                                        child: EightScreenWidget(
+                                          image: hobby.image ?? '',
+                                          text: hobby.title ?? '',
+                                          isSelected: selectedHobbyIndices.contains(currentIndex),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                          ],
+                        ),
                       ),
                     ],
                   );
