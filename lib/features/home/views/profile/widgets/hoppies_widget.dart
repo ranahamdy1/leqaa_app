@@ -7,8 +7,15 @@ import 'package:leqaa_app/features/auth/sign_up/views/widgets/eight_screen_widge
 import 'package:leqaa_app/features/home/views/profile/controller/hobby/hobby_cubit.dart';
 import 'package:leqaa_app/features/home/views/profile/controller/hobby/hobby_state.dart';
 
-class HoppiesWidget extends StatelessWidget {
+class HoppiesWidget extends StatefulWidget {
   const HoppiesWidget({super.key});
+
+  @override
+  _HoppiesWidgetState createState() => _HoppiesWidgetState();
+}
+
+class _HoppiesWidgetState extends State<HoppiesWidget> {
+  int? selectedHobbyIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +78,7 @@ class HoppiesWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           TextWidget.bigText(
-                            " الهوايات",
+                            "الهوايات",
                             color: AppColors.secondColor,
                           ),
                         ],
@@ -94,10 +101,21 @@ class HoppiesWidget extends StatelessWidget {
                       Wrap(
                         spacing: 16.0, // Adjust spacing as per your layout needs
                         runSpacing: 16.0, // Adjust runSpacing as per your layout needs
-                        children: hobbies.map((hobby) {
-                          return EightScreenWidget(
-                            image: hobby.image ?? '', // Handle null case
-                            text: hobby.title ?? '', // Handle null case
+                        children: hobbies.asMap().entries.map((entry) {
+                          int index = entry.key;
+                          var hobby = entry.value;
+
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedHobbyIndex = index;
+                              });
+                            },
+                            child: EightScreenWidget(
+                              image: hobby.image ?? '', // Handle null case
+                              text: hobby.title ?? '',
+                              isSelected: selectedHobbyIndex == index,
+                            ),
                           );
                         }).toList(),
                       ),

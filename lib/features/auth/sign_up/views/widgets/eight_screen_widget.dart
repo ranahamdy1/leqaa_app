@@ -3,9 +3,11 @@ import 'package:leqaa_app/core/utils/app_colors.dart';
 import 'package:leqaa_app/core/widgets/text_widget.dart';
 
 class EightScreenWidget extends StatelessWidget {
-  const EightScreenWidget({super.key, required this.image, required this.text});
+  const EightScreenWidget({super.key, required this.image, required this.text, required this.isSelected});
+
   final String image;
   final String text;
+  final bool isSelected; // Add this property to manage selection state
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +19,20 @@ class EightScreenWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.babyPinkColor,
           borderRadius: BorderRadius.circular(4),
+          border: Border.all(
+            color: isSelected ? AppColors.secondColor : AppColors.babyPinkColor, // Conditional border color
+          ),
         ),
         child: Row(
           children: [
             Flexible(
-              flex: 2, // Adjust flex to control the image's space ratio
+              flex: 2,
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Image.network(
                   image,
-                  fit: BoxFit.contain, // Prevents overflow by resizing the image
-                  height: 36, // Ensures the image height fits the container
+                  fit: BoxFit.contain,
+                  height: 36,
                   width: 36,
                 ),
               ),
@@ -36,8 +41,8 @@ class EightScreenWidget extends StatelessWidget {
               flex: 3,
               child: TextWidget(
                 text,
-                overflow: TextOverflow.ellipsis, // Truncate text if it overflows
-                maxLines: 1, // Ensures the text stays within one line
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
             ),
           ],
