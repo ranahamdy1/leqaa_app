@@ -10,4 +10,5 @@ class Endpoints{
   static String home="home";
   static String logout="logout";
   static String deleteAcount="user/delete";
+  static String hoppies="hoppies";
 }
